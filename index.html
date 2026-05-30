@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge Movers Writing Skills Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 35px;
+            border: 4px solid #c7d2fe;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+            font-size: 2.4rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 0px #e0e7ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        /* --- MENU CHỦ ĐỀ SÁCH --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .menu-btn {
+            background: #f1f5f9;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #475569;
+            text-align: left;
+        }
+
+        .menu-btn:hover {
+            background: #e0e7ff;
+            border-color: #818cf8;
+            color: #3730a3;
+        }
+
+        .menu-btn.active {
+            background: #4f46e5;
+            color: white;
+            border-color: #3730a3;
+        }
+
+        /* --- VÙNG NỘI DUNG --- */
+        .content-section {
+            display: none;
+            background: #ffffff;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            color: #312e81;
+            font-size: 1.5rem;
+            border-bottom: 3px dashed #c7d2fe;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-tag {
+            font-size: 0.9rem;
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .instruction-box {
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 12px 15px;
+            border-radius: 4px 12px 12px 4px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #14532d;
+        }
+
+        .word-pool {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            color: #64748b;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* --- ĐỊNH DẠNG CÂU HỎI --- */
+        .question-block {
+            background: #fafafa;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .question-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .flex-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .input-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            padding: 6px 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-weight: 700;
+        }
+
+        .input-short { width: 150px; text-align: center; }
+        .input-long { width: 100%; max-width: 550px; }
+
+        /* --- ĐÁP ÁN ĐÚNG SAI --- */
+        .correct-style { border-color: #22c55e !important; background-color: #f0fdf4; color: #15803d; }
+        .incorrect-style { border-color: #ef4444 !important; background-color: #fef2f2; color: #b91c1c; }
+
+        /* --- HỆ THỐNG NÚT --- */
+        .btn {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #3730a3;
+            transition: all 0.1s;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+
+        .btn:active { transform: translateY(2px); box-shadow: none; }
+        .btn-check { background: #10b981; box-shadow: 0 3px 0 #059669; }
+        .btn-hint { background: #f59e0b; box-shadow: 0 3px 0 #d97706; }
+
+        .hint-zone, .ans-zone {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .hint-zone { background: #fffbeb; border-left: 4px solid #f59e0b; color: #78350f; }
+        .ans-zone { background: #f0fdf4; border-left: 4px solid #22c55e; color: #166534; }
+
+        .radio-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .radio-label {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .radio-label:hover { background: #f1f5f9; }
+
+        .result-text {
+            font-weight: 700;
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 Movers Writing Skills Hub 📝</h1>
+    <p class="subtitle">Hệ thống tương tác học và chấm điểm kỹ năng Viết toàn diện theo Giáo trình chuẩn Cambridge</p>
+
+    <div class="menu-grid">
+        <button class="menu-btn active" onclick="showPart('p1')">1. What can you see?</button>
+        <button class="menu-btn" onclick="showPart('p2')">2. Which person / thing?</button>
+        <button class="menu-btn" onclick="showPart('p3')">3. What are they doing?</button>
+        <button class="menu-btn" onclick="showPart('p4')">4. Who, what, where...?</button>
+        <button class="menu-btn" onclick="showPart('p5')">5. Where are they?</button>
+        <button class="menu-btn" onclick="showPart('p6')">6. Questions & sentences</button>
+        <button class="menu-btn" onclick="showPart('p7')">7. Describing a picture</button>
+        <button class="menu-btn" onclick="showPart('p8')">8. Writing about people</button>
+        <button class="menu-btn" onclick="showPart('p9')">9. Make sentences longer</button>
+        <button class="menu-btn" onclick="showPart('p10')">10. Let's write!</button>
+    </div>
+
+    <div id="p1" class="content-section" style="display: block;">
+        <div class="section-header">
+            <span>Bài 1: What can you see?</span>
+            <span class="page-tag">Page 2</span>
+        </div>
+        <div class="instruction-box">Task B: Nhìn tranh bãi biển và sắp xếp lại các chữ cái để tạo thành từ đúng:</div>
+        
+        <div class="question-block">
+            <div class="flex-row">
+                <span>1. a seuho ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="house" placeholder="house">
+            </div>
+            <div class="flex-row">
+                <span>2. two ndowiws ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="windows" placeholder="windows">
+            </div>
+            <div class="flex-row">
+                <span>3. three locusd ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="clouds" placeholder="clouds">
+            </div>
+            <div class="flex-row">
+                <span>4. two mwone ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="women" placeholder="women">
+            </div>
+            <div class="flex-row">
+                <span>5. two aotsb ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="boats" placeholder="boats">
+            </div>
+            <div class="flex-row">
+                <span>6. two ysbo ➔ </span>
+                <input type="text" class="input-text input-short p1-in" data-ans="boys" placeholder="boys">
+            </div>
+            <button class="btn btn-check" onclick="checkShortText('p1-in', 'p1-res')">Kiểm tra kết quả</button>
+            <span id="p1-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p2" class="content-section">
+        <div class="section-header">
+            <span>Bài 2: Which person, which thing?</span>
+            <span class="page-tag">Page 3</span>
+        </div>
+        <div class="instruction-box">Task B: Đọc và chọn câu đúng cấu trúc miêu tả ngữ pháp chuẩn Cambridge:</div>
+        
+        <div class="question-block">
+            <div class="question-title">1. Miêu tả chiếc áo của cậu bé cao hơn:</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p2-q1" value="wrong"> The taller boy is wearing a orange T-shirt.</label>
+                <label class="radio-label"><input type="radio" name="p2-q1" value="correct"> The taller boy is wearing a yellow T-shirt. ✓</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">2. Miêu tả hành động của con vẹt trên mỏm đá:</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p2-q2" value="correct"> The parrot which is on the rock is looking at the boat. ✓</label>
+                <label class="radio-label"><input type="radio" name="p2-q2" value="wrong"> The parrot on rock looking at the boat.</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">3. Miêu tả đám mây lớn nhất:</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p2-q3" value="correct"> The biggest cloud is grey. ✓</label>
+                <label class="radio-label"><input type="radio" name="p2-q3" value="wrong"> The biggest cloud are grey.</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">4. Miêu tả thuyền buồm không có người:</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p2-q4" value="correct"> The boat with a sail has not got any people in it. ✓</label>
+                <label class="radio-label"><input type="radio" name="p2-q4" value="wrong"> The boat with a sail is not got any people in it.</label>
+            </div>
+            <button class="btn btn-check" onclick="checkRadio('p2', 4, 'p2-res')">Kiểm tra kết quả</button>
+            <span id="p2-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p3" class="content-section">
+        <div class="section-header">
+            <span>Bài 3: What are they doing?</span>
+            <span class="page-tag">Page 4</span>
+        </div>
+        <div class="instruction-box">Task A: Nối hành động đúng của các nhân vật xuất hiện trong tranh:</div>
+        
+        <div class="question-block">
+            <div class="question-title">Nhấp vào nút để đối chiếu hành động chính xác của từng người:</div>
+            <button class="btn btn-hint" onclick="toggleZone('ans-p3')">🌟 Xem bảng phân tích hành động</button>
+            <div id="ans-p3" class="ans-zone" style="display:none;">
+                <strong>Đáp án chuẩn từ Answer Key:</strong><br>
+                • <strong>The woman:</strong> standing, carrying bags, smiling, waving.<br>
+                • <strong>The man:</strong> standing, pointing, smiling.<br>
+                • <strong>The girl:</strong> sitting, sailing, smiling.<br>
+                • <strong>The boy:</strong> sitting, drawing.
+            </div>
+        </div>
+    </div>
+
+    <div id="p4" class="content-section">
+        <div class="section-header">
+            <span>Bài 4: Who, what, where, how many?</span>
+            <span class="page-tag">Page 5</span>
+        </div>
+        <div class="instruction-box">Task B: Điền từ chính xác để hoàn thành câu trả lời ngắn (Không quá 3 từ):</div>
+        
+        <div class="question-block">
+            <div class="flex-row">
+                <span>1. Where is the family? ➔ At the </span>
+                <input type="text" class="input-text input-short p4-in" data-ans="beach" placeholder="beach">
+            </div>
+            <div class="flex-row">
+                <span>2. What is the boy doing? ➔ He is </span>
+                <input type="text" class="input-text input-short p4-in" data-ans="drawing" placeholder="drawing">
+            </div>
+            <div class="flex-row">
+                <span>3. How many people are there? ➔ There are </span>
+                <input type="text" class="input-text input-short p4-in" data-ans="four" placeholder="four"> (hoặc 4)
+            </div>
+            <div class="flex-row">
+                <span>4. What is the girl doing? ➔ She is </span>
+                <input type="text" class="input-text input-short p4-in" data-ans="sailing" placeholder="sailing">
+            </div>
+            <button class="btn btn-check" onclick="checkShortText('p4-in', 'p4-res')">Kiểm tra kết quả</button>
+            <span id="p4-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p5" class="content-section">
+        <div class="section-header">
+            <span>Bài 5: Where are they?</span>
+            <span class="page-tag">Page 6</span>
+        </div>
+        <div class="instruction-box">Task A & B: Chọn giới từ chỉ vị trí đúng để miêu tả bức tranh bãi biển:</div>
+        
+        <div class="question-block">
+            <div class="flex-row">
+                <span>1. The family is [on / at] the beach. ➔ </span>
+                <input type="text" class="input-text input-short p5-in" data-ans="on" placeholder="on">
+            </div>
+            <div class="flex-row">
+                <span>2. Two dolphins are [in / under] the sea. ➔ </span>
+                <input type="text" class="input-text input-short p5-in" data-ans="in" placeholder="in">
+            </div>
+            <div class="flex-row">
+                <span>3. The birds are flying [above / on] the house. ➔ </span>
+                <input type="text" class="input-text input-short p5-in" data-ans="above" placeholder="above">
+            </div>
+            <div class="flex-row">
+                <span>4. The man is standing [next to / behind] the woman. ➔ </span>
+                <input type="text" class="input-text input-short p5-in" data-ans="next to" placeholder="next to">
+            </div>
+            <button class="btn btn-check" onclick="checkShortText('p5-in', 'p5-res')">Kiểm tra kết quả</button>
+            <span id="p5-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p6" class="content-section">
+        <div class="section-header">
+            <span>Bài 6: Questions and sentences</span>
+            <span class="page-tag">Page 7</span>
+        </div>
+        <div class="instruction-box">Task A: Nối câu hỏi với mẫu câu trả lời hoàn chỉnh thích hợp:</div>
+        
+        <div class="question-block">
+            <div class="question-title">1. Who is waving?</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p6-q1" value="correct"> The woman with grey hair is waving. ✓</label>
+                <label class="radio-label"><input type="radio" name="p6-q1" value="wrong"> She is at the beach.</label>
+            </div>
+        </div>
+        <div class="question-block">
+            <div class="question-title">2. What are the boys doing?</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p6-q2" value="wrong"> There are two boys.</label>
+                <label class="radio-label"><input type="radio" name="p6-q2" value="correct"> They are playing with a ball. ✓</label>
+            </div>
+        </div>
+        <div class="question-block">
+            <div class="question-title">3. Where is the man pointing?</div>
+            <div class="radio-stack">
+                <label class="radio-label"><input type="radio" name="p6-q3" value="correct"> He is pointing at the plane in the sky. ✓</label>
+                <label class="radio-label"><input type="radio" name="p6-q3" value="wrong"> Yes, he is pointing.</label>
+            </div>
+            <button class="btn btn-check" onclick="checkRadio('p6', 3, 'p6-res')">Kiểm tra kết quả</button>
+            <span id="p6-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p7" class="content-section">
+        <div class="section-header">
+            <span>Bài 7: Describing a picture</span>
+            <span class="page-tag">Page 8 - 9</span>
+        </div>
+        <div class="instruction-box">Luyện kỹ năng hoàn thành câu miêu tả chi tiết (Movers Part 6):</div>
+        
+        <div class="question-block">
+            <div class="question-title">Nhập từ thích hợp để hoàn thiện câu miêu tả:</div>
+            <div class="flex-row">
+                <span>1. The woman has got a bag on her </span>
+                <input type="text" class="input-text input-short p7-in" data-ans="shoulder" placeholder="shoulder">
+            </div>
+            <div class="flex-row">
+                <span>2. The boy in the water is </span>
+                <input type="text" class="input-text input-short p7-in" data-ans="swimming" placeholder="swimming">
+            </div>
+            <div class="flex-row">
+                <span>3. The window in the roof is shaped like a </span>
+                <input type="text" class="input-text input-short p7-in" data-ans="triangle" placeholder="triangle">
+            </div>
+            <button class="btn btn-check" onclick="checkShortText('p7-in', 'p7-res')">Kiểm tra kết quả</button>
+            <span id="p7-res" class="result-text"></span>
+        </div>
+    </div>
+
+    <div id="p8" class="content-section">
+        <div class="section-header">
+            <span>Bài 8: Writing about people</span>
+            <span class="page-tag">Page 10</span>
+        </div>
+        <div class="instruction-box">Task B: Thu thập thông tin từ bảng dữ liệu để chuẩn bị viết câu miêu tả:</div>
+        
+        <div class="question-block">
+            <div class="question-title">Xem đáp án tổng hợp thuộc tính của các nhân vật:</div>
+            <button class="btn btn-hint" onclick="toggleZone('ans-p8')">🌟 Xem Thuộc tính của Jack và Cô bé</button>
+            <div id="ans-p8" class="ans-zone" style="display:none;">
+                <strong>Bảng dữ liệu chuẩn:</strong><br>
+                • <strong>Jack's clothes:</strong> T-shirt, shorts, shoes, shirt.<br>
+                • <strong>Jack's hair:</strong> straight, short, brown, black.<br>
+                • <strong>Hành động của Jack:</strong> climbing a tree, fishing in the river, sitting under the tree, standing by the river.<br>
+                • <strong>The girl's hair:</strong> straight, long, black.
+            </div>
+        </div>
+    </div>
+
+    <div id="p9" class="content-section">
+        <div class="section-header">
+            <span>Bài 9: Make your sentences longer</span>
+            <span class="page-tag">Page 11</span>
+        </div>
+        <div class="instruction-box">Kỹ thuật mở rộng câu nâng Khiên bằng cách sử dụng dấu phẩy và từ nối "and":</div>
+        
+        <div class="question-block">
+            <div class="question-title">Câu hỏi 1: Kết hợp các tính từ [long / straight / black] để miêu tả tóc cô bé:</div>
+            <button class="btn btn-hint" onclick="toggleZone('hint-p9-1')">💡 Gợi ý tư duy</button>
+            <button class="btn" onclick="toggleZone('ans-p9-1')">🌟 Xem Đáp án mẫu</button>
+            <div id="hint-p9-1" class="hint-zone">Sử dụng cấu trúc: S + is + adj1, adj2 and adj3.</div>
+            <div id="ans-p9-1" class="ans-zone"><strong>Đáp án chuẩn:</strong> <code>The girl's hair is long, straight and black.</code></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">Câu hỏi 2: Kết hợp 2 hành động [standing by the river / taking a photo] thành câu dài:</div>
+            <button class="btn btn-hint" onclick="toggleZone('hint-p9-2')">💡 Gợi ý tư duy</button>
+            <button class="btn" onclick="toggleZone('ans-p9-2')">🌟 Xem Đáp án mẫu</button>
+            <div id="hint-p9-2" class="hint-zone">Nối 2 hành động cùng thì tiếp diễn bằng từ nối "and": S + is + V-ing1 and V-ing2.</div>
+            <div id="ans-p9-2" class="ans-zone"><strong>Đáp án chuẩn:</strong> <code>The girl is standing by the river and taking a photo.</code></div>
+        </div>
+    </div>
+
+    <div id="p10" class="content-section">
+        <div class="section-header">
+            <span>Bài 10: Let's write!</span>
+            <span class="page-tag">Page 12 - 13</span>
+        </div>
+        <div class="instruction-box">Tổng ôn tập dạng bài thi thực tế Part 6 (Điền từ hoàn thành câu và Tự viết câu miêu tả tranh):</div>
+        
+        <div class="question-block">
+            <div class="question-title">Hoàn thành các câu sau dựa vào từ gợi ý trong key:</div>
+            <div class="flex-row">
+                <span>1. The woman is looking at her </span>
+                <input type="text" class="input-text input-long p10-in" data-ans="phone" placeholder="phone / mobile phone">
+            </div>
+            <div class="flex-row">
+                <span>2. The man is taking a photo of the </span>
+                <input type="text" class="input-text input-long p10-in" data-ans="boys" placeholder="boys / children">
+            </div>
+            <div class="flex-row">
+                <span>3. What is on the rock? ➔ Some </span>
+                <input type="text" class="input-text input-long p10-in" data-ans="parrots" placeholder="parrots">
+            </div>
+            <button class="btn btn-check" onclick="checkShortText('p10-in', 'p10-res')">Kiểm tra kết quả</button>
+            <span id="p10-res" class="result-text"></span>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">Yêu cầu nâng cao: Tự viết 2 câu hoàn chỉnh miêu tả bất kỳ hoạt động nào trong tranh:</div>
+            <button class="btn btn-hint" onclick="toggleZone('ans-p10-write')">🌟 Xem các ý tưởng gợi ý đạt điểm tuyệt đối</button>
+            <div id="ans-p10-write" class="ans-zone" style="display:none;">
+                <strong>Học sinh có thể viết các câu tương tự như sau để ăn trọn điểm ngữ pháp:</strong><br>
+                1. <code>The big dog is running on the brown sand.</code><br>
+                2. <code>Two beautiful dolphins are jumping out of the water.</code><br>
+                3. <code>A boy is sitting on the rock and looking at the sea.</code>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Điều hướng chuyển đổi các phân hệ bài tập (Tabs)
+    function showPart(partId) {
+        let sections = document.getElementsByClassName('content-section');
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
+        }
+        document.getElementById(partId).style.display = 'block';
+
+        let buttons = document.getElementsByClassName('menu-btn');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active');
+        }
+        event.currentTarget.classList.add('active');
+    }
+
+    // Chấm điểm dạng bài điền từ ngắn / điền câu chính tả
+    function checkShortText(className, resultId) {
+        let inputs = document.getElementsByClassName(className);
+        let score = 0;
+        let total = inputs.length;
+
+        for (let i = 0; i < total; i++) {
+            let userAns = inputs[i].value.trim().toLowerCase();
+            let correctAns = inputs[i].getAttribute('data-ans').toLowerCase();
+
+            // Cho phép đúng nếu chứa từ khóa cốt lõi (Flexible grading)
+            if (userAns !== "" && correctAns.includes(userAns)) {
+                inputs[i].className = "input-text input-short correct-style";
+                if(inputs[i].classList.contains('input-long')) inputs[i].className = "input-text input-long correct-style";
+                score++;
+            } else {
+                inputs[i].className = "input-text input-short incorrect-style";
+                if(inputs[i].classList.contains('input-long')) inputs[i].className = "input-text input-long incorrect-style";
+            }
+        }
+
+        let resSpan = document.getElementById(resultId);
+        if (score === total) {
+            resSpan.innerHTML = "🎉 Xuất sắc! Bé làm đúng tuyệt đối: " + score + "/" + total + " câu.";
+            resSpan.style.color = "#10b981";
+        } else {
+            resSpan.innerHTML = "🌟 Bé đúng được " + score + "/" + total + " câu. Bé hãy sửa lại các ô màu đỏ nhé!";
+            resSpan.style.color = "#f59e0b";
+        }
+    }
+
+    // Chấm điểm dạng bài trắc nghiệm Radio
+    function checkRadio(prefix, totalQuestions, resultId) {
+        let score = 0;
+        for (let i = 1; i <= totalQuestions; i++) {
+            let radios = document.getElementsByName(prefix + '-q' + i);
+            for (let j = 0; j < radios.length; j++) {
+                if (radios[j].checked && radios[j].value === "correct") {
+                    score++;
+                }
+            }
+        }
+
+        let resSpan = document.getElementById(resultId);
+        if (score === totalQuestions) {
+            resSpan.innerHTML = "🎉 Quá giỏi! Đúng " + score + "/" + totalQuestions + " câu trắc nghiệm.";
+            resSpan.style.color = "#10b981";
+        } else {
+            resSpan.innerHTML = "❌ Bé đúng " + score + "/" + totalQuestions + " câu. Hãy chọn lại đáp án nhé con!";
+            resSpan.style.color = "#ef4444";
+        }
+    }
+
+    // Ẩn/Hiện vùng gợi ý và đáp án
+    function toggleZone(zoneId) {
+        let zone = document.getElementById(zoneId);
+        zone.style.display = (zone.style.display === "block") ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
