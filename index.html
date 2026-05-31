@@ -40,10 +40,9 @@
             font-size: 1.1rem;
         }
 
-        /* Menu điều hướng */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 10px;
             margin-bottom: 35px;
         }
@@ -91,7 +90,6 @@
             border-left: 5px solid #38bdf8;
         }
 
-        /* Tranh và Kéo thả Số chương 2 */
         .img-wrap {
             text-align: center;
             margin: 20px 0;
@@ -99,7 +97,6 @@
             padding: 15px;
             border-radius: 20px;
             border: 2px dashed #cbd5e1;
-            position: relative;
         }
 
         .img-wrap img {
@@ -108,40 +105,39 @@
             border-radius: 12px;
         }
 
+        /* Interactive Map (Chương 2 Task A) */
         .interactive-map {
             position: relative;
             display: inline-block;
         }
-
         .drop-dot {
             position: absolute;
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px dashed #0284c7;
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0284c7;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             color: #0284c7;
-            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 10;
         }
-
         .number-pool {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
             margin-top: 15px;
             background: #f1f5f9;
             padding: 15px;
             border-radius: 12px;
+            flex-wrap: wrap;
         }
-
         .drag-number {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             background: #0284c7;
             color: white;
             border-radius: 50%;
@@ -150,9 +146,51 @@
             justify-content: center;
             font-weight: bold;
             cursor: grab;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
-        /* Question Block & Các loại Input */
+        /* Drag-Drop Matching Columns (Chương 4 Task A & B) */
+        .drag-match-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        .drag-origin-list, .drop-target-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .drag-item-box {
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: grab;
+            font-weight: 700;
+        }
+        .drop-target-box {
+            background: #f0f9ff;
+            border: 2px dashed #0284c7;
+            padding: 12px;
+            border-radius: 10px;
+            min-height: 24px;
+            font-weight: 700;
+            color: #0369a1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .drop-zone-slot {
+            background: white;
+            border: 1px solid #94a3b8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            min-width: 120px;
+            text-align: center;
+            color: #0f172a;
+        }
+
         .question-block {
             background: #fafafa;
             border: 1px solid #e2e8f0;
@@ -180,13 +218,12 @@
             color: #334155;
             background: white;
         }
-        .input-mini { width: 60px; text-align: center; }
-        .input-short { width: 150px; text-align: center; }
-        .input-medium { width: 250px; }
-        .input-long { width: 100%; max-width: 650px; }
-        .textarea-large { width: 100%; max-width: 650px; height: 80px; font-family: 'Quicksand', sans-serif; padding: 10px; border-radius: 8px; border: 2px solid #cbd5e1; font-weight: 700; }
+        .input-mini { width: 50px; text-align: center; }
+        .input-short { width: 140px; text-align: center; }
+        .input-medium { width: 260px; }
+        .input-long { width: 100%; max-width: 680px; }
+        .textarea-large { width: 100%; max-width: 680px; height: 75px; font-family: 'Quicksand', sans-serif; padding: 10px; border-radius: 8px; border: 2px solid #cbd5e1; font-weight: 700; }
 
-        /* Nút chọn 3 trạng thái (Trống -> V -> X) */
         .tri-state-btn {
             background: white;
             border: 2px solid #cbd5e1;
@@ -204,7 +241,6 @@
         .tri-state-btn.state-v { background: #dcfce7; border-color: #22c55e; color: #15803d; }
         .tri-state-btn.state-x { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
 
-        /* Nút lựa chọn Radio rành mạch */
         .radio-group-btn {
             display: inline-flex;
             gap: 5px;
@@ -227,55 +263,38 @@
             border-color: #0369a1;
         }
 
-        /* 2 Cột Matching */
-        .matching-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-        .match-card {
-            background: white;
-            padding: 12px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        /* Bảng chọn thuộc tính chương 8 */
+        /* Attribute Table Chapter 8 */
         .attribute-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
+            margin-bottom: 25px;
         }
         .attribute-table th, .attribute-table td {
             border: 1px solid #cbd5e1;
             padding: 12px;
-            text-align: center;
         }
-        .attribute-table th { background: #f0f9ff; color: #0369a1; }
+        .attribute-table th { background: #f0f9ff; color: #0369a1; text-align: left; }
         .tag-pool-cell {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            justify-content: center;
         }
         .clickable-tag {
             background: white;
             border: 2px solid #cbd5e1;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 5px 12px;
+            border-radius: 16px;
             cursor: pointer;
             font-weight: 700;
+            font-size: 0.9rem;
         }
         .clickable-tag.active-tag {
-            background: #38bdf8;
-            color: white;
+            background: #bae6fd;
+            color: #0369a1;
             border-color: #0284c7;
         }
 
-        /* Bảng Điểm Tổng Hợp Cuối Trang */
         .summary-table {
             width: 100%;
             border-collapse: collapse;
@@ -296,7 +315,6 @@
         .status-badge { background: #e2e8f0; color: #475569; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; }
         .status-badge.done { background: #dcfce7; color: #15803d; }
 
-        /* Trạng thái chấm đúng/sai */
         .correct-bg { border-color: #22c55e !important; background-color: #f0fdf4 !important; color: #166534; }
         .incorrect-bg { border-color: #ef4444 !important; background-color: #fef2f2 !important; color: #991b1b; }
 
@@ -309,4 +327,719 @@
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow:
+            box-shadow: 0 4px 0 #047857;
+            margin-top: 10px;
+        }
+        .btn-submit:active { transform: translateY(3px); box-shadow: none; }
+        .feedback-text { font-weight: 700; margin-left: 15px; color: #0284c7; }
+
+        .timer-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            color: #b45309;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 Cambridge Movers: Writing Workbook</h1>
+    <p class="subtitle">Bản cập nhật sửa lỗi cấu trúc và đồng bộ hóa 10 phân hệ kỹ năng</p>
+
+    <!-- HỆ THỐNG MENU ĐIỀU HƯỚNG CHƯƠNG -->
+    <div class="menu-grid">
+        <button class="menu-btn active" onclick="showSection('ch1')">Chương 1</button>
+        <button class="menu-btn" onclick="showSection('ch2')">Chương 2</button>
+        <button class="menu-btn" onclick="showSection('ch3')">Chương 3</button>
+        <button class="menu-btn" onclick="showSection('ch4')">Chương 4</button>
+        <button class="menu-btn" onclick="showSection('ch5')">Chương 5</button>
+        <button class="menu-btn" onclick="showSection('ch6')">Chương 6</button>
+        <button class="menu-btn" onclick="showSection('ch7')">Chương 7</button>
+        <button class="menu-btn" onclick="showSection('ch8')">Chương 8</button>
+        <button class="menu-btn" onclick="showSection('ch9')">Chương 9</button>
+        <button class="menu-btn" onclick="showSection('ch10')">10. Let's Write</button>
+    </div>
+
+    <!-- CHƯƠNG 1 -->
+    <div id="ch1" class="content-section" style="display: block;">
+        <div class="section-header">Chương 1: What can you see?</div>
+        <div class="img-wrap"><img src="pictures1.png" alt="Pictures 1"></div>
+        
+        <div class="task-title">Task A: Put a (✓) or a (✗) in the box if you can see the thing in the picture</div>
+        <div class="question-block">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>an island</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>a plane</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>some sand</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>some rocks</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>two dolphins</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>five parrots</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>a man</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>a girl</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>the sea</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>two ships</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>an egg</span></div>
+                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>the sky</span></div>
+            </div>
+            <button class="btn-submit" onclick="checkCh1TaskA()">Nộp bài Task A</button><span id="ch1a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Write the words from scramble boxes</div>
+        <div class="question-block">
+            <p><strong>Word Bank:</strong> <s>a seuho</s> | two ndowiws | three locusd | two mwone | two aotsb | two ysbo</p>
+            <div class="flex-wrap-row"><span>Example: a seuho ➔ </span><input type="text" class="input-text input-medium" value="a house" disabled></div>
+            <div class="flex-wrap-row"><span>1. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two windows" placeholder="two ndowiws..."></div>
+            <div class="flex-wrap-row"><span>2. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="three clouds" placeholder="three locusd..."></div>
+            <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two women" placeholder="two mwone..."></div>
+            <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boats" placeholder="two aotsb..."></div>
+            <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boys" placeholder="two ysbo..."></div>
+            <button class="btn-submit" onclick="checkInputs('ch1b-in', 'ch1b-feedback', 'scoreCh1B')">Nộp bài Task B</button><span id="ch1b-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 2 -->
+    <div id="ch2" class="content-section">
+        <div class="section-header">Chương 2: Which person, which thing?</div>
+        
+        <div class="task-title">Task A: Write the number of the people and things in the picture (Pictures2b & 2c)</div>
+        <div class="question-block" style="text-align: center;">
+            <div class="interactive-map">
+                <img src="pictures1.png" alt="Pictures 1 Main Map" style="max-width: 650px;">
+                <!-- 10 Vùng định vị số theo sơ đồ pictures2c -->
+                <div class="drop-dot ch2a-zone" style="top: 72%; left: 16%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="1">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 61%; left: 52%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="2">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 76%; left: 24%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="3">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 62%; left: 45%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="4">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 70%; left: 41%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="5">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 17%; left: 47%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="6">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 8%; left: 55%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="7">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 17%; left: 11%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="8">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 74%; left: 53%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="9">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 79%; left: 32%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="10">?</div>
+            </div>
+            
+            <div style="text-align: left; margin-top:15px; font-size:0.95rem; background:#fff; padding:10px; border-radius:8px;">
+                <strong>Danh sách mô tả định biên (Pictures2b):</strong><br>
+                1: the woman with long hair | 2: the woman with a parrot on her shoulder | 3: the boy in an orange T-shirt | 4: the taller boy | 5: the parrot on the boat<br>
+                6: the parrot which is on the rock | 7: the biggest cloud | 8: the smallest cloud | 9: the boat with a sail | 10: the boat which has the boys in it
+            </div>
+
+            <div class="number-pool">
+                <div class="drag-number" draggable="true" id="c2n-1" ondragstart="dragStart(event)">1</div>
+                <div class="drag-number" draggable="true" id="c2n-2" ondragstart="dragStart(event)">2</div>
+                <div class="drag-number" draggable="true" id="c2n-3" ondragstart="dragStart(event)">3</div>
+                <div class="drag-number" draggable="true" id="c2n-4" ondragstart="dragStart(event)">4</div>
+                <div class="drag-number" draggable="true" id="c2n-5" ondragstart="dragStart(event)">5</div>
+                <div class="drag-number" draggable="true" id="c2n-6" ondragstart="dragStart(event)">6</div>
+                <div class="drag-number" draggable="true" id="c2n-7" ondragstart="dragStart(event)">7</div>
+                <div class="drag-number" draggable="true" id="c2n-8" ondragstart="dragStart(event)">8</div>
+                <div class="drag-number" draggable="true" id="c2n-9" ondragstart="dragStart(event)">9</div>
+                <div class="drag-number" draggable="true" id="c2n-10" ondragstart="dragStart(event)">10</div>
+            </div>
+            <button class="btn-submit" onclick="checkCh2TaskA()">Nộp bài Task A</button><span id="ch2a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Match the two parts of these sentences</div>
+        <div class="question-block">
+            <div class="drag-match-container">
+                <div class="drag-origin-list">
+                    <div class="match-card">Example: The woman with a parrot on her shoulder has ➔ <strong>short grey hair.</strong></div>
+                    <div class="match-card">1. The taller boy is wearing...</div>
+                    <div class="match-card">2. The parrot which is on the rock is...</div>
+                    <div class="match-card">3. The biggest cloud is...</div>
+                    <div class="match-card">4. The boat with a sail has...</div>
+                </div>
+                <div>
+                    <div class="flex-wrap-row"><span>Câu 1 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="a yellow T-shirt" placeholder="Gõ cụm chữ vế sau..."></div>
+                    <div class="flex-wrap-row"><span>Câu 2 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="looking at the boat" placeholder="looking at..."></div>
+                    <div class="flex-wrap-row"><span>Câu 3 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="grey" placeholder="màu sắc..."></div>
+                    <div class="flex-wrap-row"><span>Câu 4 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="not got any people in it" placeholder="not got..."></div>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="checkInputs('ch2b-in', 'ch2b-feedback', 'scoreCh2B')">Nộp bài Task B</button><span id="ch2b-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task C: Now complete these sentences with one or two words</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. The woman with grey hair has a parrot on her </span><input type="text" class="input-text input-medium ch2c-in" data-ans="shoulder">.</div>
+            <div class="flex-wrap-row"><span>2. Two parrots are flying above </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the trees|some trees|two trees|trees">.</div>
+            <div class="flex-wrap-row"><span>3. The parrot with </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the flower|a flower"><span> is standing on the boat.</span></div>
+            <div class="flex-wrap-row"><span>4. The shorter boy's </span><input type="text" class="input-text input-medium ch2c-in" data-ans="T-shirt"><span> is orange.</span></div>
+            <div class="flex-wrap-row"><span>5. The boat which is going to </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the island"><span> doesn't have a sail.</span></div>
+            <button class="btn-submit" onclick="checkInputs('ch2c-in', 'ch2c-feedback', 'scoreCh2C')">Nộp bài Task C</button><span id="ch2c-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 3 -->
+    <div id="ch3" class="content-section">
+        <div class="section-header">Chương 3: What are they doing?</div>
+        <div class="img-wrap"><img src="pictures2.png" alt="Pictures 2 Main"></div>
+        
+        <div class="task-title">Task A: Look at the picture and the words. Write the words in the table</div>
+        <div class="question-block">
+            <p style="background:#fff7ed; padding:10px; border-radius:6px;"><strong>Word Bank:</strong> standing | sitting | sailing | carrying bags | smiling | drawing | pointing | waving</p>
+            <table class="attribute-table" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>the woman</th>
+                        <th>the man</th>
+                        <th>the girl</th>
+                        <th>the boy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>standing</div>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="carrying bags">
+                        </td>
+                        <td>
+                            <div>standing</div>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="pointing">
+                        </td>
+                        <td>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="sitting" placeholder="Hành động 1"><br><br>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="sailing" placeholder="Hành động 2"><br><br>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="smiling" placeholder="Hành động 3"><br><br>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="waving" placeholder="Hành động 4">
+                        </td>
+                        <td>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="sitting" placeholder="Hành động 1"><br><br>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="drawing" placeholder="Hành động 2"><br><br>
+                            <input type="text" class="input-text input-short ch3-in" data-ans="smiling" placeholder="Hành động 3">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn-submit" onclick="checkInputs('ch3-in', 'ch3-feedback', 'scoreCh3')">Nộp bài Chương 3</button><span id="ch3-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 4 -->
+    <div id="ch4" class="content-section">
+        <div class="section-header">Chương 4: Who, what, where, how many?</div>
+        
+        <div class="task-title">Task A: Read and match the questions and answers (Pictures2a)</div>
+        <div class="question-block">
+            <div style="text-align:center;"><img src="pictures2a.png" alt="Pictures 2a Mini Icon" style="border-radius:50%; border:2px solid #0284c7;"></div>
+            <div class="drag-match-container">
+                <div class="drop-target-list">
+                    <div class="drop-target-box">Example: Who is on the sand? <span class="drop-zone-slot">a boy</span></div>
+                    <div class="drop-target-box">1. Where is he? <span id="ch4a-tgt-1" class="drop-zone-slot ch4a-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="at the beach">?</span></div>
+                    <div class="drop-target-box">2. What is he doing? <span id="ch4a-tgt-2" class="drop-zone-slot ch4a-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="drawing a plane">?</span></div>
+                    <div class="drop-target-box">3. How many planes can you see? <span id="ch4a-tgt-3" class="drop-zone-slot ch4a-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="one">?</span></div>
+                    <div class="drop-target-box">4. What colour is the boy's T-shirt? <span id="ch4a-tgt-4" class="drop-zone-slot ch4a-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="orange">?</span></div>
+                    <div class="drop-target-box">5. What shape is around the plane? <span id="ch4a-tgt-3" class="drop-zone-slot ch4a-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="a circle">?</span></div>
+                </div>
+                <div class="drag-origin-list">
+                    <div class="drag-item-box" draggable="true" id="c4a-i1" ondragstart="dragStart(event)">drawing a plane</div>
+                    <div class="drag-item-box" draggable="true" id="c4a-i2" ondragstart="dragStart(event)">orange</div>
+                    <div class="drag-item-box" draggable="true" id="c4a-i3" ondragstart="dragStart(event)">a circle</div>
+                    <div class="drag-item-box" draggable="true" id="c4a-i4" ondragstart="dragStart(event)">one</div>
+                    <div class="drag-item-box" draggable="true" id="c4a-i5" ondragstart="dragStart(event)">at the beach</div>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="checkCh4TaskA()">Nộp bài Task A</button><span id="ch4a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Match the questions and answers (Pictures4a Cloud Extraction)</div>
+        <div class="question-block">
+            <div class="drag-match-container">
+                <div class="drop-target-list">
+                    <div class="drop-target-box">Example: Where is the parrot? <span class="drop-zone-slot">on a rock</span></div>
+                    <div class="drop-target-box">1. Who has got long, blond hair? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="the woman">?</span></div>
+                    <div class="drop-target-box">2. What is the girl doing? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="sailing a boat">?</span></div>
+                    <div class="drop-target-box">3. How many people are standing on the sand? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="two">?</span></div>
+                    <div class="drop-target-box">4. What colour are the boy's shorts? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="red and white">?</span></div>
+                    <div class="drop-target-box">5. What is jumping out of the water? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(event)" ondrop="dropMatchItem(event)" data-ans="a blue dolphin">?</span></div>
+                </div>
+                <div class="drag-origin-list">
+                    <div class="drag-item-box" draggable="true" id="c4b-i1" ondragstart="dragStart(event)">the woman</div>
+                    <div class="drag-item-box" draggable="true" id="c4b-i2" ondragstart="dragStart(event)">sailing a boat</div>
+                    <div class="drag-item-box" draggable="true" id="c4b-i3" ondragstart="dragStart(event)">two</div>
+                    <div class="drag-item-box" draggable="true" id="c4b-i4" ondragstart="dragStart(event)">red and white</div>
+                    <div class="drag-item-box" draggable="true" id="c4b-i5" ondragstart="dragStart(event)">a blue dolphin</div>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="checkCh4TaskB()">Nộp bài Task B</button><span id="ch4b-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task C: Answer the questions</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. What shape is on the boat's sail? ➔ </span><input type="text" class="input-text input-medium ch4c-in" data-ans="a black square|a square|square"></div>
+            <div class="flex-wrap-row"><span>2. Where is the man's bag? ➔ </span><input type="text" class="input-text input-long ch4c-in" data-ans="on the sand|on the ground|on the beach|at his feet|next to his feet"></div>
+            <div class="flex-wrap-row"><span>3. Who is waving? ➔ </span><input type="text" class="input-text input-medium ch4c-in" data-ans="the girl|the girl in the boat"></div>
+            <button class="btn-submit" onclick="checkInputs('ch4c-in', 'ch4c-feedback', 'scoreCh4C')">Nộp bài Task C</button><span id="ch4c-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 5 -->
+    <div id="ch5" class="content-section">
+        <div class="section-header">Chương 5: Where are they?</div>
+        <div class="img-wrap"><img src="pictures3.png" alt="Pictures 3 Main"></div>
+        
+        <div class="task-title">Task A: Circle the correct word (Full 8 Items)</div>
+        <div class="question-block">
+            <!-- 1-4 -->
+            <div class="flex-wrap-row"><span>1. The man is </span><div class="radio-group-btn" data-group="c5-q1" data-ans="outside"><div class="radio-option" onclick="selectRadio(this,'outside')">outside</div><div class="radio-option" onclick="selectRadio(this,'inside')">inside</div></div><span> the house.</span></div>
+            <div class="flex-wrap-row"><span>2. He is sitting </span><div class="radio-group-btn" data-group="c5-q2" data-ans="on"><div class="radio-option" onclick="selectRadio(this,'in')">in</div><div class="radio-option" onclick="selectRadio(this,'on')">on</div></div><span> the chair.</span></div>
+            <div class="flex-wrap-row"><span>3. He is </span><div class="radio-group-btn" data-group="c5-q3" data-ans="with"><div class="radio-option" onclick="selectRadio(this,'about')">about</div><div class="radio-option" onclick="selectRadio(this,'with')">with</div></div><span> his family.</span></div>
+            <div class="flex-wrap-row"><span>4. He is </span><div class="radio-group-btn" data-group="c5-q4" data-ans="in"><div class="radio-option" onclick="selectRadio(this,'in')">in</div><div class="radio-option" onclick="selectRadio(this,'on')">on</div></div><span> a white shirt.</span></div>
+            <!-- 5-8 -->
+            <div class="flex-wrap-row"><span>5. He is sitting </span><div class="radio-group-btn" data-group="c5-q5" data-ans="near"><div class="radio-option" onclick="selectRadio(this,'next to')">next to</div><div class="radio-option" onclick="selectRadio(this,'near')">near</div></div><span> the two women.</span></div>
+            <div class="flex-wrap-row"><span>6. There are some green leaves </span><div class="radio-group-btn" data-group="c5-q6" data-ans="below"><div class="radio-option" onclick="selectRadio(this,'above')">above</div><div class="radio-option" onclick="selectRadio(this,'below')">below</div></div><span> the man.</span></div>
+            <div class="flex-wrap-row"><span>7. The parrot is </span><div class="radio-group-btn" data-group="c5-q7" data-ans="between"><div class="radio-option" onclick="selectRadio(this,'between')">between</div><div class="radio-option" onclick="selectRadio(this,'out of')">out of</div></div><span> two plants.</span></div>
+            <div class="flex-wrap-row"><span>8. The table is </span><div class="radio-group-btn" data-group="c5-q8" data-ans="in front of"><div class="radio-option" onclick="selectRadio(this,'in front of')">in front of</div><div class="radio-option" onclick="selectRadio(this,'opposite')">opposite</div></div><span> a wall.</span></div>
+            
+            <button class="btn-submit" onclick="checkCh5TaskA()">Nộp bài Chương 5</button><span id="ch5a-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 6 -->
+    <div id="ch6" class="content-section">
+        <div class="section-header">Chương 6: Questions and sentences</div>
+        
+        <div class="task-title">Task A: Put a (✓) or (✗). Cross out the wrong words and write the correct words</div>
+        <div class="question-block">
+            <div class="flex-wrap-row">
+                <span>1. The parrot is on a chair which is behind the older woman.</span>
+                <select class="input-text ch6a-sel" onchange="toggleCorrection(this, 'c6-c1')" data-ans="✗">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <input type="text" id="c6-c1" class="input-text input-short ch6a-in" placeholder="Sửa thành..." style="display:none;" data-ans="opposite">
+            </div>
+            <div class="flex-wrap-row">
+                <span>2. One of the boys is dancing with his mother.</span>
+                <select class="input-text ch6a-sel" onchange="toggleCorrection(this, 'c6-c2')" data-ans="✓">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <input type="text" id="c6-c2" class="input-text input-short ch6a-in" style="display:none;">
+            </div>
+            <div class="flex-wrap-row">
+                <span>3. There are some green leaves above the man.</span>
+                <select class="input-text ch6a-sel" onchange="toggleCorrection(this, 'c6-c3')" data-ans="✓">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <input type="text" id="c6-c3" class="input-text input-short ch6a-in" style="display:none;">
+            </div>
+            <div class="flex-wrap-row">
+                <span>4. The woman in a blue and white dress is dancing in the grass.</span>
+                <select class="input-text ch6a-sel" onchange="toggleCorrection(this, 'c6-c4')" data-ans="✗">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <input type="text" id="c6-c4" class="input-text input-short ch6a-in" placeholder="Sửa thành..." style="display:none;" data-ans="on">
+            </div>
+            <div class="flex-wrap-row">
+                <span>5. The phone is below the boy's hand.</span>
+                <select class="input-text ch6a-sel" onchange="toggleCorrection(this, 'c6-c5')" data-ans="✗">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <input type="text" id="c6-c5" class="input-text input-short ch6a-in" placeholder="Sửa thành..." style="display:none;" data-ans="in">
+            </div>
+            <button class="btn-submit" onclick="checkCh6TaskA()">Nộp bài Task A</button><span id="ch6a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Memory Test Challenge (Look at picture for 1 minute then answers)</div>
+        <div class="question-block">
+            <div id="c6-timer" class="timer-box">Hình ảnh biến mất sau: 60 giây</div>
+            <div id="c6-img-frame" class="img-wrap"><img src="pictures3.png" alt="Pictures 3 Memory Panel"></div>
+            <div class="flex-wrap-row"><span>1. Who is dancing with one of the boys? ➔ </span><input type="text" class="input-text input-medium ch6b-in" data-ans="the woman|the mother|his mother"></div>
+            <div class="flex-wrap-row"><span>2. What is the man playing? ➔ </span><input type="text" class="input-text input-medium ch6b-in" data-ans="the guitar|his guitar|guitar|music|a song"></div>
+            <div class="flex-wrap-row"><span>3. What is the boy who is standing on the chair doing? ➔ </span><input type="text" class="input-text input-long ch6b-in" data-ans="making a film|making a video|videoing|filming his grandfather|taking a photo of the man"></div>
+            <div class="flex-wrap-row"><span>4. Where are the plates and glasses? ➔ </span><input type="text" class="input-text input-medium ch6b-in" data-ans="on the table"></div>
+            <div class="flex-wrap-row"><span>5. What colour is the bowl that's next to the flowers? ➔ </span><input type="text" class="input-text input-short ch6b-in" data-ans="yellow"></div>
+            <button class="btn-submit" onclick="checkInputs('ch6b-in', 'ch6b-feedback', 'scoreCh6B')">Nộp bài Task B</button><span id="ch6b-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task C: Now complete the sentences with one, two or three words</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. One of the boys is dancing with </span><input type="text" class="input-text input-medium ch6c-in" data-ans="his mother|the woman">.</div>
+            <div class="flex-wrap-row"><span>2. The person who is playing </span><input type="text" class="input-text input-medium ch6c-in" data-ans="the guitar|his guitar|guitar|music|a song"><span> is sitting in front of the wall.</span></div>
+            <div class="flex-wrap-row"><span>3. The boy who is standing on the chair is </span><input type="text" class="input-text input-long ch6c-in" data-ans="making a film|making a video|filming|taking a photo">.</div>
+            <div class="flex-wrap-row"><span>4. There are lots of </span><input type="text" class="input-text input-medium ch6c-in" data-ans="plates|glasses|bowls|dishes"><span> on the table.</span></div>
+            <div class="flex-wrap-row"><span>5. The bowl that's next to the flowers is </span><input type="text" class="input-text input-medium ch6c-in" data-ans="yellow|big|empty">.</div>
+            <button class="btn-submit" onclick="checkInputs('ch6c-in', 'ch6c-feedback', 'scoreCh6C')">Nộp bài Task C</button><span id="ch6c-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 7 -->
+    <div id="ch7" class="content-section">
+        <div class="section-header">Chương 7: Describing a picture</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" class="img-wrap">
+            <div><strong>Picture A</strong><br><img src="pictures4.png"></div>
+            <div><strong>Picture B</strong><br><img src="pictures5.png"></div>
+        </div>
+        
+        <div class="task-title">Task A: Put the words in the correct order. Which picture are they about? (A / B / A and B)</div>
+        <div class="question-block">
+            <!-- 1 -->
+            <div class="question-block">
+                <p>1. orange / book. / reading / is / Grandfather / an</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="Grandfather is reading an orange book."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p1" data-ans="B">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="question-block">
+                <p>2. tree. / climbing / Jack / is / the</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="Jack is climbing the tree."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p2" data-ans="A">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="question-block">
+                <p>3. short / parrots' / yellow. / The / tails / and / are</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="The parrots' tails are short and yellow.|The parrots' tails are yellow and short."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p3" data-ans="A">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="question-block">
+                <p>4. is / The / Star. / called / boat / man's</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="The man's boat is called Star."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p4" data-ans="A">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="question-block">
+                <p>5. between / There / a / rocks. / is / some / waterfall</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="There is a waterfall between some rocks."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p5" data-ans="A and B">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="question-block">
+                <p>6. swimming / girl / river. / is / across / the / The</p>
+                <input type="text" class="input-text input-long ch7a-str" data-ans="The girl is swimming across the river."><br><br>
+                <span>Picture Choice: </span>
+                <div class="radio-group-btn" data-group="c7a-p6" data-ans="B">
+                    <div class="radio-option" onclick="selectRadio(this,'A')">A</div><div class="radio-option" onclick="selectRadio(this,'B')">B</div><div class="radio-option" onclick="selectRadio(this,'A and B')">A and B</div>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="checkCh7TaskA()">Nộp bài Task A</button><span id="ch7a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Write correct punctuation for the sentences about picture B</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. the boy who is fishing is called jack ➔ </span><input type="text" class="input-text input-long ch7b-in" data-ans="The boy who is fishing is called Jack."></div>
+            <div class="flex-wrap-row"><span>2. the name of the boat is sky ➔ </span><input type="text" class="input-text input-long ch7b-in" data-ans="The name of the boat is Sky."></div>
+            <div class="flex-wrap-row"><span>3. the girls swimsuit is pink ➔ </span><input type="text" class="input-text input-long ch7b-in" data-ans="The girl's swimsuit is pink."></div>
+            <button class="btn-submit" onclick="checkInputs('ch7b-in', 'ch7b-feedback', 'scoreCh7B')">Nộp bài Task B</button><span id="ch7b-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task C: Write sentences about pictures A and B with words from each box</div>
+        <div class="question-block">
+            <p><strong>Box Words Matrix (pictures6a):</strong><br>
+            [Subjects]: Grandpa's feet, The parrots' tails, The monkey, The girl, The frog, There<br>
+            [Verbs]: is, are, is jumping, has got<br>
+            [Objects]: in the water, long and red, three parrots in the tree, a camera, looking at the boat, out of the boat
+            </p>
+            <div class="flex-wrap-row"><span>1. </span><input type="text" class="input-text input-long ch7c-in" data-ans="Grandpa's feet are in the water"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="A"></div>
+            <div class="flex-wrap-row"><span>2. </span><input type="text" class="input-text input-long ch7c-in" data-ans="The parrots' tails are long and red"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="B"></div>
+            <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-long ch7c-in" data-ans="The monkey is looking at the boat"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="A"></div>
+            <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-long ch7c-in" data-ans="The girl has got a camera"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="A"></div>
+            <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-long ch7c-in" data-ans="The frog is jumping out of the boat"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="B"></div>
+            <div class="flex-wrap-row"><span>6. </span><input type="text" class="input-text input-long ch7c-in" data-ans="There are three parrots in the tree"> <span> | Picture: </span><input type="text" class="input-text input-mini ch7c-pic" data-ans="B"></div>
+            <button class="btn-submit" onclick="checkCh7TaskC()">Nộp bài Task C</button><span id="ch7c-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 8 -->
+    <div id="ch8" class="content-section">
+        <div class="section-header">Chương 8: Writing about people</div>
+        <div class="img-wrap"><img src="pictures6.png" alt="Pictures 6 Focus Frame"></div>
+        
+        <div class="task-title">Task A: Click to choose correct words (Separated Modules)</div>
+        <div class="question-block">
+            <h3>🧔 JACK</h3>
+            <table class="attribute-table">
+                <tr><td>Jack's clothes</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">T-shirt</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">jeans</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">cap</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">shorts</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">shoes</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">shirt</span></div></td></tr>
+                <tr><td>Colours of clothes</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">blue</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">yellow</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">red</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">green</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">pink</span></div></td></tr>
+                <tr><td>Jack's hair</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">curly</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">short</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">brown</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">straight</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">long</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">black</span></div></td></tr>
+                <tr><td>Things Jack is doing</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">fishing in the river</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="true">sitting under the tree</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">climbing a tree</span><span class="clickable-tag c8-jk" onclick="toggleTag(this)" data-ans="false">swimming</span></div></td></tr>
+            </table>
+
+            <h3>👧 THE GIRL</h3>
+            <table class="attribute-table">
+                <tr><td>The girl's clothes</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">T-shirt</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">boots</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">skirt</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">jeans</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">shorts</span></div></td></tr>
+                <tr><td>Colours of clothes</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">pink</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">black</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">red</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">blue</span></div></td></tr>
+                <tr><td>The girl's hair</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">straight</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">long</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">black</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">curly</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">short</span></div></td></tr>
+                <tr><td>Things she is doing</td><td><div class="tag-pool-cell"><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">taking a photo</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="true">standing by the river</span><span class="clickable-tag c8-gr" onclick="toggleTag(this)" data-ans="false">swimming</span></div></td></tr>
+            </table>
+            <button class="btn-submit" onclick="checkCh8TaskA()">Nộp bài Chương 8</button><span id="ch8a-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 9 -->
+    <div id="ch9" class="content-section">
+        <div class="section-header">Chương 9: Sentence expansion framework</div>
+        
+        <div class="task-title">Task A: Complete the sentences about Jack</div>
+        <div class="question-block">
+            <div class="flex-wrap-row">
+                <span>1. Jack's hair is </span>
+                <input type="text" class="input-text input-short ch9a-in" data-ans="short"><span>, </span>
+                <input type="text" class="input-text input-short ch9a-in" data-ans="brown"><span> and </span>
+                <input type="text" class="input-text input-short ch9a-in" data-ans="curly">.
+            </div>
+            <div class="flex-wrap-row">
+                <span>2. Jack is </span>
+                <input type="text" class="input-text input-medium ch9a-in" data-ans="sitting under"><span> the tree and </span>
+                <input type="text" class="input-text input-short ch9a-in" data-ans="fishing"><span> in the river.</span>
+            </div>
+            <button class="btn-submit" onclick="checkInputs('ch9a-in', 'ch9a-feedback', 'scoreCh9A')">Nộp bài Task A</button><span id="ch9a-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task B: Write sentences about the girl</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. The girl's hair is </span><input type="text" class="input-text input-long ch9b-in" data-ans="long, straight and black|long straight and black">.</div>
+            <div class="flex-wrap-row"><span>2. The girl is </span><input type="text" class="input-text input-long ch9b-in" data-ans="standing by the river and taking a photo">.</div>
+            <button class="btn-submit" onclick="checkInputs('ch9b-in', 'ch9b-feedback', 'scoreCh9B')">Nộp bài Task B</button><span id="ch9b-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task C: Read then complete the sentences (Pictures7)</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. The parrots have got yellow tails, which </span><input type="text" class="input-text input-medium ch9c-in" data-ans="are short">.</div>
+            <div class="flex-wrap-row"><span>2. The monkey has got a brown tail, which </span><input type="text" class="input-text input-medium ch9c-in" data-ans="is in the water|is in the river">.</div>
+            <div class="flex-wrap-row"><span>3. Jack is wearing a cap with his name on it. The girl is wearing a T-shirt with </span><input type="text" class="input-text input-long ch9c-in" data-ans="a white star on it|a star on it">.</div>
+            <div class="flex-wrap-row"><span>4. In the tree there is a boy, who is climbing. In the tree there is a man, who </span><input type="text" class="input-text input-long ch9c-in" data-ans="is reading a book|is sitting reading a book|is reading">.</div>
+            <button class="btn-submit" onclick="checkInputs('ch9c-in', 'ch9c-feedback', 'scoreCh9C')">Nộp bài Task C</button><span id="ch9c-feedback" class="feedback-text"></span>
+        </div>
+
+        <div class="task-title">Task D: Write two more sentences. Use and, which, with or who (Pictures10)</div>
+        <div class="question-block">
+            <p>1. <input type="text" class="input-text input-long" placeholder="Sentence 1 (Teacher custom check)..."></p>
+            <p>2. <input type="text" class="input-text input-long" placeholder="Sentence 2 (Teacher custom check)..."></p>
+            <p style="color:#0284c7; font-weight:700; font-size:0.9rem;">* Ghi chú: Hệ thống ghi nhận trạng thái làm bài tự luận (Student's own answers).</p>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 10 -->
+    <div id="ch10" class="content-section">
+        <div class="section-header">10. Let's Write! (Extension Unit)</div>
+        <div class="img-wrap"><img src="pictures8.png" alt="Pictures 8 Hub Canvas"></div>
+        
+        <div class="task-title">Complete the sentences & Answer the questions</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. In her hand, the woman has got a </span><input type="text" class="input-text input-medium ch10-in" data-ans="phone|mobile phone|telephone|cellphone">.</div>
+            <div class="flex-wrap-row"><span>2. Both </span><input type="text" class="input-text input-medium ch10-in" data-ans="the boys|boys|brothers|children"><span> are wearing a cap.</span></div>
+            <div class="flex-wrap-row"><span>3. What is flying below the helicopter? ➔ </span><input type="text" class="input-text input-medium ch10-in" data-ans="some parrots|parrots|four parrots|three parrots"></div>
+            <div class="flex-wrap-row"><span>4. Where is the man with a phone? ➔ </span><input type="text" class="input-text input-long ch10-in" data-ans="on the boat|in the boat|standing on the boat"></div>
+            
+            <p style="margin-top:20px; font-weight:700; color:#0369a1;">Now write two sentences about the picture:</p>
+            <p>5. <input type="text" class="input-text input-long" placeholder="Your own sentence 5..."></p>
+            <p>6. <input type="text" class="input-text input-long" placeholder="Your own sentence 6..."></p>
+            
+            <button class="btn-submit" onclick="checkInputs('ch10-in', 'ch10-feedback', 'scoreCh10')">Nộp bài Phần 10</button><span id="ch10-feedback" class="feedback-text"></span>
+        </div>
+    </div>
+
+    <!-- BẢNG TỔNG HỢP GHI NHẬN ĐIỂM SỐ TOÀN BÀI -->
+    <table class="summary-table">
+        <thead>
+            <tr><th>Mục lục chương bài</th><th>Số tiêu chí định biên</th><th>Trạng thái</th><th>Điểm số tự động đạt</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Chương 1 (Task A + Task B)</td><td>17 mục câu hỏi</td><td><span id="b-ch1" class="status-badge">Chưa nộp</span></td><td><span id="s-ch1">0</span> / 17</td></tr>
+            <tr><td>Chương 2 (Task A + B + C)</td><td>19 mục câu hỏi</td><td><span id="b-ch2" class="status-badge">Chưa nộp</span></td><td><span id="s-ch2">0</span> / 19</td></tr>
+            <tr><td>Chương 3 (Task A Table Grid)</td><td>6 vị trí khuyết</td><td><span id="b-ch3" class="status-badge">Chưa nộp</span></td><td><span id="s-ch3">0</span> / 6</td></tr>
+            <tr><td>Chương 4 (Task A + B + C)</td><td>13 mục tiêu nối</td><td><span id="b-ch4" class="status-badge">Chưa nộp</span></td><td><span id="s-ch4">0</span> / 13</td></tr>
+            <tr><td>Chương 5 (Task A Prepositions)</td><td>8 câu hỏi Radio</td><td><span id="b-ch5" class="status-badge">Chưa nộp</span></td><td><span id="s-ch5">0</span> / 8</td></tr>
+            <tr><td>Chương 6 (Task A + B + C)</td><td>15 mục kiểm tra</td><td><span id="b-ch6" class="status-badge">Chưa nộp</span></td><td><span id="s-ch6">0</span> / 15</td></tr>
+            <tr><td>Chương 7 (Task A + B + C)</td><td>15 câu cấu trúc</td><td><span id="b-ch7" class="status-badge">Chưa nộp</span></td><td><span id="s-ch7">0</span> / 15</td></tr>
+            <tr><td>Chương 8 (Task A Tag Selection)</td><td>23 thuộc tính đúng</td><td><span id="b-ch8" class="status-badge">Chưa nộp</span></td><td><span id="s-ch8">0</span> / 23</td></tr>
+            <tr><td>Chương 9 (Task A + B + C)</td><td>11 ô điền từ</td><td><span id="b-ch9" class="status-badge">Chưa nộp</span></td><td><span id="s-ch9">0</span> / 11</td></tr>
+            <tr><td>10. Let's Write Unit Ext</td><td>4 ô định vị chuẩn</td><td><span id="b-ch10" class="status-badge">Chưa nộp</span></td><td><span id="s-ch10">0</span> / 4</td></tr>
+            <!-- TỔNG SỐ ĐIỂM -->
+            <tr><td>ĐIỂM TỔNG TỰ ĐỘNG TOÀN DIỆN</td><td>131 mục tiêu khảo sát</td><td>-</td><td><span id="global-final-sc">0</span> / 131</td></tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    let scores = { ch1a:0, ch1b:0, ch2a:0, ch2b:0, ch2c:0, ch3:0, ch4a:0, ch4b:0, ch4c:0, ch5a:0, ch6a:0, ch6b:0, ch6c:0, ch7a:0, ch7b:0, ch7c:0, ch8a:0, ch9a:0, ch9b:0, ch9c:0, ch10:0 };
+
+    function refreshSummary() {
+        let c1 = scores.ch1a + scores.ch1b; document.getElementById('s-ch1').innerText = c1; if(c1>0) markBadge('b-ch1');
+        let c2 = scores.ch2a + scores.ch2b + scores.ch2c; document.getElementById('s-ch2').innerText = c2; if(c2>0) markBadge('b-ch2');
+        document.getElementById('s-ch3').innerText = scores.ch3; if(scores.ch3>0) markBadge('b-ch3');
+        let c4 = scores.ch4a + scores.ch4b + scores.ch4c; document.getElementById('s-ch4').innerText = c4; if(c4>0) markBadge('b-ch4');
+        document.getElementById('s-ch5').innerText = scores.ch5a; if(scores.ch5a>0) markBadge('b-ch5');
+        let c6 = scores.ch6a + scores.ch6b + scores.ch6c; document.getElementById('s-ch6').innerText = c6; if(c6>0) markBadge('b-ch6');
+        let c7 = scores.ch7a + scores.ch7b + scores.ch7c; document.getElementById('s-ch7').innerText = c7; if(c7>0) markBadge('b-ch7');
+        document.getElementById('s-ch8').innerText = scores.ch8a; if(scores.ch8a>0) markBadge('b-ch8');
+        let c9 = scores.ch9a + scores.ch9b + scores.ch9c; document.getElementById('s-ch9').innerText = c9; if(c9>0) markBadge('b-ch9');
+        document.getElementById('s-ch10').innerText = scores.ch10; if(scores.ch10>0) markBadge('b-ch10');
+
+        let grand = c1 + c2 + scores.ch3 + c4 + scores.ch5a + c6 + c7 + scores.ch8a + c9 + scores.ch10;
+        document.getElementById('global-final-sc').innerText = grand;
+    }
+
+    function markBadge(id) {
+        let e = document.getElementById(id); e.innerText = "Đã nộp bài"; e.className = "status-badge done";
+    }
+
+    function showSection(id) {
+        let s = document.getElementsByClassName('content-section');
+        for(let i=0; i<s.length; i++) s[i].style.display = 'none';
+        document.getElementById(id).style.display = 'block';
+        let b = document.getElementsByClassName('menu-btn');
+        for(let i=0; i<b.length; i++) b[i].classList.remove('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function cycleTriState(btn) {
+        let st = btn.getAttribute('data-state');
+        if(st==='none') { btn.setAttribute('data-state','v'); btn.innerText='✓'; btn.className='tri-state-btn state-v'; }
+        else if(st==='v') { btn.setAttribute('data-state','x'); btn.innerText='✗'; btn.className='tri-state-btn state-x'; }
+        else { btn.setAttribute('data-state','none'); btn.innerText='?'; btn.className='tri-state-btn'; }
+    }
+
+    function checkCh1TaskA() {
+        let b = document.getElementsByClassName('ch1a-btn'); let sc = 0;
+        for(let i=0; i<b.length; i++) {
+            let u = b[i].getAttribute('data-state')==='v'?'✓':(b[i].getAttribute('data-state')==='x'?'✗':'none');
+            if(u === b[i].getAttribute('data-ans')) sc++;
+        }
+        document.getElementById('ch1a-feedback').innerText = `Đúng ${sc}/${b.length}`; scores.ch1a = sc; refreshSummary();
+    }
+
+    function checkInputs(cls, fId, key) {
+        let ips = document.getElementsByClassName(cls); let sc = 0;
+        for(let i=0; i<ips.length; i++) {
+            let v = ips[i].value.trim().toLowerCase().replace(/[.]/g,"");
+            let target = ips[i].getAttribute('data-ans').toLowerCase().split('|');
+            let match = false;
+            for(let t of target) { if(v === t.trim()) { match = true; break; } }
+            if(v!=="" && match) { ips[i].className="input-text correct-bg"; sc++; }
+            else { ips[i].className="input-text incorrect-bg"; }
+        }
+        document.getElementById(fId).innerText = `Đúng ${sc}/${ips.length}`; scores[key] = sc; refreshSummary();
+    }
+
+    function allowDrop(ev) { ev.preventDefault(); }
+    function dragStart(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+    function dropNumber(ev) {
+        ev.preventDefault(); var data = ev.dataTransfer.setData ? ev.dataTransfer.getData("text") : ev.dataTransfer.getData("text/plain");
+        var node = document.getElementById(data); ev.target.innerText = node.innerText;
+        ev.target.setAttribute('data-u', node.innerText); ev.target.style.background="#0284c7"; ev.target.style.color="white";
+    }
+
+    function checkCh2TaskA() {
+        let z = document.getElementsByClassName('ch2a-zone'); let sc = 0;
+        for(let i=0; i<z.length; i++) {
+            if(z[i].getAttribute('data-u') === z[i].getAttribute('data-ans')) { z[i].style.borderColor="#22c55e"; sc++; }
+            else { z[i].style.borderColor="#ef4444"; }
+        }
+        document.getElementById('ch2a-feedback').innerText = `Đúng ${sc}/${z.length}`; scores.ch2a = sc; refreshSummary();
+    }
+
+    function dropMatchItem(ev) {
+        ev.preventDefault(); var data = ev.dataTransfer.getData("text");
+        var node = document.getElementById(data); ev.target.innerText = node.innerText;
+        ev.target.setAttribute('data-u', node.innerText); ev.target.style.background="#fff";
+    }
+
+    function checkCh4TaskA() {
+        let d = document.getElementsByClassName('ch4a-drop'); let sc = 0;
+        for(let i=0; i<d.length; i++) {
+            if(d[i].getAttribute('data-u') === d[i].getAttribute('data-ans')) sc++;
+        }
+        document.getElementById('ch4a-feedback').innerText = `Đúng ${sc}/5`; scores.ch4a = sc; refreshSummary();
+    }
+
+    function checkCh4TaskB() {
+        let d = document.getElementsByClassName('ch4b-drop'); let sc = 0;
+        for(let i=0; i<d.length; i++) {
+            if(d[i].getAttribute('data-u') === d[i].getAttribute('data-ans')) sc++;
+        }
+        document.getElementById('ch4b-feedback').innerText = `Đúng ${sc}/5`; scores.ch4b = sc; refreshSummary();
+    }
+
+    function selectRadio(el, val) {
+        let p = el.parentElement; let ops = p.getElementsByClassName('radio-option');
+        for(let o of ops) o.classList.remove('selected'); el.classList.add('selected');
+        p.setAttribute('data-u', val);
+    }
+
+    function checkCh5TaskA() {
+        let gr = document.querySelectorAll('[data-group^="c5-"]'); let sc = 0;
+        gr.forEach(g => { if(g.getAttribute('data-u')===g.getAttribute('data-ans')) sc++; });
+        document.getElementById('ch5a-feedback').innerText = `Đúng ${sc}/${gr.length}`; scores.ch5a = sc; refreshSummary();
+    }
+
+    function toggleCorrection(sel, id) {
+        let ip = document.getElementById(id);
+        if(sel.value==='✗') ip.style.display='inline-block'; else { ip.style.display='none'; ip.value=''; }
+    }
+
+    function checkCh6TaskA() {
+        let sl = document.getElementsByClassName('ch6a-sel'); let sc = 0;
+        for(let i=0; i<sl.length; i++) {
+            if(sl[i].value === sl[i].getAttribute('data-ans')) {
+                if(sl[i].value==='✗') {
+                    let n = sl[i].nextElementSibling; if(n.value.trim().toLowerCase() === n.getAttribute('data-ans')) sc++;
+                } else sc++;
+            }
+        }
+        document.getElementById('ch6a-feedback').innerText = `Đúng ${sc}/5`; scores.ch6a = sc; refreshSummary();
+    }
+
+    function checkCh7TaskA() {
+        let str = document.getElementsByClassName('ch7a-str');
+        let gr = document.querySelectorAll('[data-group^="c7a-"]');
+        let sc = 0;
+        for(let i=0; i<str.length; i++) {
+            let v = str[i].value.trim().toLowerCase().replace(/[.]/g,"");
+            let target = str[i].getAttribute('data-ans').toLowerCase().split('|');
+            let m = false; for(let t of target) { if(v === t.trim().replace(/[.]/g,"")) { m = true; break; } }
+            if(m && gr[i].getAttribute('data-u') === gr[i].getAttribute('data-ans')) sc++;
+        }
+        document.getElementById('ch7a-feedback').innerText = `Đúng ${sc}/6`; scores.ch7a = sc; refreshSummary();
+    }
+
+    function checkCh7TaskC() {
+        let ips = document.getElementsByClassName('ch7c-in');
+        let pics = document.getElementsByClassName('ch7c-pic');
+        let sc = 0;
+        for(let i=0; i<ips.length; i++) {
+            if(ips[i].value.trim().toLowerCase() === ips[i].getAttribute('data-ans').toLowerCase() && pics[i].value.trim().toUpperCase() === pics[i].getAttribute('data-ans')) sc++;
+        }
+        document.getElementById('ch7c-feedback').innerText = `Đúng ${sc}/6`; scores.ch7c = sc; refreshSummary();
+    }
+
+    function toggleTag(tag) { tag.classList.toggle('active-tag'); }
+
+    function checkCh8TaskA() {
+        let sc = 0; let total = 0; let tags = document.querySelectorAll('.c8-jk, .c8-gr');
+        tags.forEach(t => {
+            total++; let act = t.classList.contains('active-tag').toString();
+            if(act === t.getAttribute('data-ans')) sc++;
+        });
+        document.getElementById('ch8a-feedback').innerText = `Đúng ${sc}/${total}`; scores.ch8a = sc; refreshSummary();
+    }
+
+    let tLeft = 60;
+    let timer = setInterval(function(){
+        tLeft--; if(tLeft<=0) { clearInterval(timer); document.getElementById('c6-timer').innerText="Hết giờ! Tranh đã đóng."; document.getElementById('c6-img-frame').style.display='none'; }
+        else { document.getElementById('c6-timer').innerText=`Hình ảnh biến mất sau: ${tLeft} giây`; }
+    }, 1000);
+</script>
+</body>
+</html>
