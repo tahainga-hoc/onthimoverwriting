@@ -163,6 +163,7 @@
         }
 
         .input-short { width: 140px; text-align: center; }
+        .input-mini { width: 60px; text-align: center; }
         .input-medium { width: 220px; }
         .input-long { width: 100%; max-width: 600px; margin-top: 5px; }
 
@@ -264,11 +265,11 @@
         <div class="task-title">Task B: Write the words from the scrambled letters</div>
         <div class="question-block">
             <p><em>Example: a seuho ➔ a house</em></p>
-            <div class="flex-wrap-row"><span>1. two ndowiws ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="windows"></div>
-            <div class="flex-wrap-row"><span>2. three locusd ➔ three </span><input type="text" class="input-text input-short p1b-in" data-ans="clouds"></div>
-            <div class="flex-wrap-row"><span>3. two mwone ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="women"></div>
-            <div class="flex-wrap-row"><span>4. two aotsb ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="boats"></div>
-            <div class="flex-wrap-row"><span>5. two ysbo ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="boys"></div>
+            <div class="flex-wrap-row"><span>1. two ndowiws ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="windows" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>2. three locusd ➔ three </span><input type="text" class="input-text input-short p1b-in" data-ans="clouds" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>3. two mwone ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="women" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>4. two aotsb ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="boats" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>5. two ysbo ➔ two </span><input type="text" class="input-text input-short p1b-in" data-ans="boys" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkInputs('p1b-in', 'p1b-res')">Check đáp án</button>
             <span id="p1b-res" class="result-msg"></span>
         </div>
@@ -279,12 +280,23 @@
         <div class="section-header">Chương 2: Which person?</div>
         <div class="img-wrap"><img src="pictures1.png" alt="Hình ảnh bài 2"></div>
         
-        <div class="task-title">Task A: Map items with details (Xem ảnh đáp án đính kèm số định vị để đối chiếu)</div>
+        <div class="task-title">Task A: Write the number of the people and things in the picture on page 2</div>
         <div class="question-block">
-            <button class="btn btn-ans" onclick="toggleZone('p2a-ans')">Xem ảnh định vị vị trí số (1-10)</button>
-            <div id="p2a-ans" class="ans-zone">
-                Chị có thể bật ảnh gốc <code>2.Which person.A_Answer</code> để học sinh nhìn rõ số định danh tương ứng từ 1 tới 10 được gắn trên người và vật.
+            <p>Điền số định vị chính xác từ tranh vào ô trống:</p>
+            <div class="grid-inputs">
+                <div class="flex-wrap-row"><span>• the woman with long hair: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="1" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the woman with a parrot on her shoulder: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="2" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the boy in an orange T-shirt: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="3" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the taller boy: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="4" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the parrot on the boat: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="5" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the parrot which is on the rock: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="6" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the biggest cloud: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="7" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the smallest cloud: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="8" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the boat with a sail: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="9" placeholder="?"></div>
+                <div class="flex-wrap-row"><span>• the boat which has the boys in it: </span><input type="text" class="input-text input-mini p2a-number-in" data-ans="10" placeholder="?"></div>
             </div>
+            <button class="btn btn-check" onclick="checkInputs('p2a-number-in', 'p2a-num-res')">Nộp kết quả số định vị</button>
+            <span id="p2a-num-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task B: Match the two parts of these sentences</div>
@@ -335,11 +347,11 @@
 
         <div class="task-title">Task C: Complete these sentences with one or two words</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. The woman with grey hair has a </span><input type="text" class="input-text input-medium p2c-in" data-ans="parrot" placeholder="parrot"><span> on her shoulder.</span></div>
-            <div class="flex-wrap-row"><span>2. Two parrots are flying above the </span><input type="text" class="input-text input-medium p2c-in" data-ans="trees|some trees|two trees" placeholder="trees"></div>
-            <div class="flex-wrap-row"><span>3. The parrot with the </span><input type="text" class="input-text input-medium p2c-in" data-ans="flower|a flower" placeholder="flower"><span> is standing on the boat.</span></div>
-            <div class="flex-wrap-row"><span>4. The shorter boy's T-shirt is </span><input type="text" class="input-text input-short p2c-in" data-ans="orange" placeholder="color"></div>
-            <div class="flex-wrap-row"><span>5. The boat which is going to the island doesn't have a </span><input type="text" class="input-text input-short p2c-in" data-ans="sail" placeholder="sail"></div>
+            <div class="flex-wrap-row"><span>1. The woman with grey hair has a </span><input type="text" class="input-text input-medium p2c-in" data-ans="parrot" placeholder="???"><span> on her shoulder.</span></div>
+            <div class="flex-wrap-row"><span>2. Two parrots are flying above the </span><input type="text" class="input-text input-medium p2c-in" data-ans="trees|some trees|two trees" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>3. The parrot with the </span><input type="text" class="input-text input-medium p2c-in" data-ans="flower|a flower" placeholder="???"><span> is standing on the boat.</span></div>
+            <div class="flex-wrap-row"><span>4. The shorter boy's T-shirt is </span><input type="text" class="input-text input-short p2c-in" data-ans="orange" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>5. The boat which is going to the island doesn't have a </span><input type="text" class="input-text input-short p2c-in" data-ans="sail" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkInputs('p2c-in', 'p2c-res')">Chấm điểm bài C</button>
             <span id="p2c-res" class="result-msg"></span>
         </div>
@@ -351,16 +363,16 @@
         <div class="img-wrap"><img src="pictures2.png" alt="Hình ảnh bài 3"></div>
         <div class="task-title">Task A: Look at the picture and classify words in the table</div>
         <div class="question-block">
-            <p>Học sinh điền các từ chỉ hành động phù hợp vào nhóm nhân vật (Phân tách nhiều hành động bằng dấu phẩy):</p>
-            <div class="flex-wrap-row"><span>• The woman: standing, </span><input type="text" class="input-text input-medium p3-in" data-ans="carrying bags" placeholder="carrying bags"></div>
-            <div class="flex-wrap-row"><span>• The man: standing, </span><input type="text" class="input-text input-medium p3-in" data-ans="pointing" placeholder="pointing"></div>
-            <div class="flex-wrap-row"><span>• The girl (điền đủ 4 từ): </span><input type="text" class="input-text input-long p3-in" data-ans="sitting, sailing, smiling, waving" placeholder="ví dụ: sitting, sailing, smiling, waving"></div>
-            <div class="flex-wrap-row"><span>• The boy (điền đủ 3 từ): </span><input type="text" class="input-text input-long p3-in" data-ans="sitting, drawing, smiling" placeholder="ví dụ: sitting, drawing, smiling"></div>
+            <p>Nhập từ chỉ hành động tương ứng phù hợp của từng nhân vật (Từ gợi ý: standing, sitting, sailing, carrying bags, smiling, drawing, pointing, waving):</p>
+            <div class="flex-wrap-row"><span>• The woman (2 từ): </span><input type="text" class="input-text input-medium p3-in" data-ans="standing, carrying bags|carrying bags, standing" placeholder="Gõ hành động..."></div>
+            <div class="flex-wrap-row"><span>• The man (2 từ): </span><input type="text" class="input-text input-medium p3-in" data-ans="standing, pointing|pointing, standing" placeholder="Gõ hành động..."></div>
+            <div class="flex-wrap-row"><span>• The girl (4 từ): </span><input type="text" class="input-text input-long p3-in" data-ans="sitting, sailing, smiling, waving" placeholder="Cách nhau bằng dấu phẩy"></div>
+            <div class="flex-wrap-row"><span>• The boy (3 từ): </span><input type="text" class="input-text input-long p3-in" data-ans="sitting, drawing, smiling" placeholder="Cách nhau bằng dấu phẩy"></div>
             <button class="btn btn-check" onclick="checkInputs('p3-in', 'p3-res')">Nộp bài</button>
             <button class="btn btn-ans" onclick="toggleZone('p3-ans-zone')">Hiện bảng chuẩn</button>
             <span id="p3-res" class="result-msg"></span>
             <div id="p3-ans-zone" class="ans-zone">
-                <strong>Dữ liệu đối chiếu chuẩn xác:</strong><br>
+                <strong>Đáp án chuẩn để đối chiếu:</strong><br>
                 - The woman: standing, carrying bags<br>
                 - The man: standing, pointing<br>
                 - The girl: sitting, sailing, smiling, waving<br>
@@ -376,31 +388,31 @@
         
         <div class="task-title">Task A: Read and match the questions and answers</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. Where is he? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="at the beach"></div>
-            <div class="flex-wrap-row"><span>2. What is he doing? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="drawing a plane"></div>
-            <div class="flex-wrap-row"><span>3. How many planes can you see? ➔ </span><input type="text" class="input-text input-short p4a-in" data-ans="one"></div>
-            <div class="flex-wrap-row"><span>4. What colour is the boy's T-shirt? ➔ </span><input type="text" class="input-text input-short p4a-in" data-ans="orange"></div>
-            <div class="flex-wrap-row"><span>5. What shape is around the plane? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="a circle"></div>
+            <div class="flex-wrap-row"><span>1. Where is he? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="at the beach" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>2. What is he doing? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="drawing a plane" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>3. How many planes can you see? ➔ </span><input type="text" class="input-text input-short p4a-in" data-ans="one" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>4. What colour is the boy's T-shirt? ➔ </span><input type="text" class="input-text input-short p4a-in" data-ans="orange" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>5. What shape is around the plane? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="a circle" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkInputs('p4a-in', 'p4a-res')">Check câu hỏi nối A</button>
             <span id="p4a-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task B: Match and Write questions and answers on lines</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. </span><input type="text" class="input-text input-long p4b-in" data-ans="Who has got long, blond hair?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="the woman" placeholder="Gõ câu trả lời"></div>
-            <div class="flex-wrap-row"><span>2. </span><input type="text" class="input-text input-long p4b-in" data-ans="What is the girl doing?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="sailing a boat" placeholder="Gõ câu trả lời"></div>
-            <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-long p4b-in" data-ans="How many people are standing on the sand?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-short p4b-in" data-ans="two" placeholder="Gõ câu trả lời"></div>
-            <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-long p4b-in" data-ans="What colour are the boy's shorts?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="red and white" placeholder="Gõ câu trả lời"></div>
-            <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-long p4b-in" data-ans="What is jumping out of the water?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="a blue dolphin" placeholder="Gõ câu trả lời"></div>
+            <div class="flex-wrap-row"><span>1. </span><input type="text" class="input-text input-long p4b-in" data-ans="Who has got long, blond hair?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="the woman" placeholder="Trả lời"></div>
+            <div class="flex-wrap-row"><span>2. </span><input type="text" class="input-text input-long p4b-in" data-ans="What is the girl doing?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="sailing a boat" placeholder="Trả lời"></div>
+            <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-long p4b-in" data-ans="How many people are standing on the sand?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-short p4b-in" data-ans="two" placeholder="Trả lời"></div>
+            <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-long p4b-in" data-ans="What colour are the boy's shorts?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="red and white" placeholder="Trả lời"></div>
+            <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-long p4b-in" data-ans="What is jumping out of the water?" placeholder="Gõ câu hỏi"> ➔ <input type="text" class="input-text input-medium p4b-in" data-ans="a blue dolphin" placeholder="Trả lời"></div>
             <button class="btn btn-check" onclick="checkInputs('p4b-in', 'p4b-res')">Nộp bài B</button>
             <span id="p4b-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task C: Answer the questions directly</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. What shape is on the boat's sail? ➔ </span><input type="text" class="input-text input-medium p4c-in" data-ans="a square|a black square"></div>
-            <div class="flex-wrap-row"><span>2. Where is the man's bag? ➔ </span><input type="text" class="input-text input-long p4c-in" data-ans="on the sand|ground|beach|at his feet|next to his feet"></div>
-            <div class="flex-wrap-row"><span>3. Who is waving? ➔ </span><input type="text" class="input-text input-medium p4c-in" data-ans="the girl|the girl in the boat"></div>
+            <div class="flex-wrap-row"><span>1. What shape is on the boat's sail? ➔ </span><input type="text" class="input-text input-medium p4c-in" data-ans="a square|a black square" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>2. Where is the man's bag? ➔ </span><input type="text" class="input-text input-long p4c-in" data-ans="on the sand|ground|beach|at his feet|next to his feet" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>3. Who is waving? ➔ </span><input type="text" class="input-text input-medium p4c-in" data-ans="the girl|the girl in the boat" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkInputs('p4c-in', 'p4c-res')">Kiểm tra Phần C</button>
             <span id="p4c-res" class="result-msg"></span>
         </div>
@@ -434,22 +446,22 @@
         
         <div class="task-title">Task A: Put (✓) or (✗) and correct the wrong word</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. The parrot is on a chair which is behind the older woman.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="opposite"></div>
+            <div class="flex-wrap-row"><span>1. The parrot is on a chair which is behind the older woman.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="opposite" placeholder="???"></div>
             <div class="flex-wrap-row"><span>2. One of the boys is dancing with his mother.</span><select class="p6a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
             <div class="flex-wrap-row"><span>3. There are some green leaves above the man.</span><select class="p6a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
-            <div class="flex-wrap-row"><span>4. The woman in a blue and white dress is dancing in the grass.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="on"></div>
-            <div class="flex-wrap-row"><span>5. The phone is below the boy's hand.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="in"></div>
+            <div class="flex-wrap-row"><span>4. The woman in a blue and white dress is dancing in the grass.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="on" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>5. The phone is below the boy's hand.</span><select class="p6a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select>➔ Sửa thành: <input type="text" class="input-text input-short p6a-in" data-ans="in" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkPart6A()">Nộp bài 6A</button>
             <span id="p6a-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task B & C: Complete sentences with one, two or three words</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. One of the boys is dancing with </span><input type="text" class="input-text input-medium p6c-in" data-ans="his mother|the woman"></div>
-            <div class="flex-wrap-row"><span>2. The person who is playing </span><input type="text" class="input-text input-medium p6c-in" data-ans="the guitar|his guitar|a guitar|music|a song"><span> is sitting in front of the wall.</span></div>
-            <div class="flex-wrap-row"><span>3. The boy who is standing on the chair is </span><input type="text" class="input-text input-long p6c-in" data-ans="making a film|video|videoing|filming his grandfather|taking a photo of his grandfather"></div>
+            <div class="flex-wrap-row"><span>1. One of the boys is dancing with </span><input type="text" class="input-text input-medium p6c-in" data-ans="his mother|the woman" placeholder="???"></div>
+            <div class="flex-wrap-row"><span>2. The person who is playing </span><input type="text" class="input-text input-medium p6c-in" data-ans="the guitar|his guitar|a guitar|music|a song" placeholder="???"><span> is sitting in front of the wall.</span></div>
+            <div class="flex-wrap-row"><span>3. The boy who is standing on the chair is </span><input type="text" class="input-text input-long p6c-in" data-ans="making a film|video|videoing|filming his grandfather|taking a photo of his grandfather" placeholder="???"></div>
             <div class="flex-wrap-row"><span>4. There are lots of </span><input type="text" class="input-text input-medium p6c-in" data-ans="plates|glasses|bowls|plates and glasses" placeholder="plates/glasses..."><span> on the table.</span></div>
-            <div class="flex-wrap-row"><span>5. The bowl that's next to the flowers is </span><input type="text" class="input-text input-short p6c-in" data-ans="yellow|big|empty"></div>
+            <div class="flex-wrap-row"><span>5. The bowl that's next to the flowers is </span><input type="text" class="input-text input-short p6c-in" data-ans="yellow|big|empty" placeholder="???"></div>
             <button class="btn btn-check" onclick="checkInputs('p6c-in', 'p6c-res')">Chấm điểm bài C</button>
             <span id="p6c-res" class="result-msg"></span>
         </div>
@@ -465,21 +477,21 @@
         
         <div class="task-title">Task A: Put the words in correct order and write A or B</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. orange book / reading / is / Grandfather / an ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="Grandfather is reading an orange book."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="B">]</div>
-            <div class="flex-wrap-row"><span>2. tree / climbing / Jack / is / the ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="Jack is climbing the tree."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A">]</div>
-            <div class="flex-wrap-row"><span>3. short / parrots' / yellow / The / tails / and / are ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The parrots' tails are short and yellow.|The parrots' tails are yellow and short."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A">]</div>
-            <div class="flex-wrap-row"><span>4. is / The / Star / called / boat / man's ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The man's boat is called Star."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A">]</div>
-            <div class="flex-wrap-row"><span>5. between / There / a / rocks / is / some / waterfall ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="There is a waterfall between some rocks."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A and B">]</div>
-            <div class="flex-wrap-row"><span>6. swimming / girl / river / is / across / the / The ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The girl is swimming across the river."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="B">]</div>
+            <div class="flex-wrap-row"><span>1. orange book / reading / is / Grandfather / an ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="Grandfather is reading an orange book." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="B" placeholder="A/B?">]</div>
+            <div class="flex-wrap-row"><span>2. tree / climbing / Jack / is / the ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="Jack is climbing the tree." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A" placeholder="A/B?">]</div>
+            <div class="flex-wrap-row"><span>3. short / parrots' / yellow / The / tails / and / are ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The parrots' tails are short and yellow.|The parrots' tails are yellow and short." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A" placeholder="A/B?">]</div>
+            <div class="flex-wrap-row"><span>4. is / The / Star / called / boat / man's ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The man's boat is called Star." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A" placeholder="A/B?">]</div>
+            <div class="flex-wrap-row"><span>5. between / There / a / rocks / is / some / waterfall ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="There is a waterfall between some rocks." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="A and B" placeholder="A/B?">]</div>
+            <div class="flex-wrap-row"><span>6. swimming / girl / river / is / across / the / The ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="The girl is swimming across the river." placeholder="Xếp lại câu..."> <span>[Picture </span><input type="text" class="input-text input-short p7a-pic" data-ans="B" placeholder="A/B?">]</div>
             <button class="btn btn-check" onclick="checkPart7A()">Check kết quả tổng hợp</button>
             <span id="p7a-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task B: Write correct punctuation for picture B (Viết hoa đầu câu và dấu chấm)</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. the boy who is fishing is called jack ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The boy who is fishing is called Jack."></div>
-            <div class="flex-wrap-row"><span>2. the name of the boat is sky ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The name of the boat is Sky."></div>
-            <div class="flex-wrap-row"><span>3. the girls swimsuit is pink ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The girl's swimsuit is pink."></div>
+            <div class="flex-wrap-row"><span>1. the boy who is fishing is called jack ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The boy who is fishing is called Jack." placeholder="Viết lại câu chuẩn..."></div>
+            <div class="flex-wrap-row"><span>2. the name of the boat is sky ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The name of the boat is Sky." placeholder="Viết lại câu chuẩn..."></div>
+            <div class="flex-wrap-row"><span>3. the girls swimsuit is pink ➔ </span><input type="text" class="input-text input-long p7b-in" data-ans="The girl's swimsuit is pink." placeholder="Viết lại câu chuẩn..."></div>
             <button class="btn btn-check" onclick="checkInputs('p7b-in', 'p7b-res')">Nộp bài B</button>
             <span id="p7b-res" class="result-msg"></span>
         </div>
@@ -506,14 +518,14 @@
         <div class="task-title">Task A: Choose the attributes based on Cambridge Official Key</div>
         <div class="question-block">
             <h4>[JACK'S DATA]</h4>
-            <div class="flex-wrap-row"><span>Jack's clothes: </span><input type="text" class="input-text input-medium p8-in" data-ans="T-shirt, shorts, shoes, shirt"></div>
-            <div class="flex-wrap-row"><span>Jack's hair: </span><input type="text" class="input-text input-medium p8-in" data-ans="curly, short, brown"></div>
-            <div class="flex-wrap-row"><span>Jack's activities: </span><input type="text" class="input-text input-long p8-in" data-ans="fishing in the river, sitting under the tree"></div>
+            <div class="flex-wrap-row"><span>Jack's clothes: </span><input type="text" class="input-text input-medium p8-in" data-ans="T-shirt, shorts, shoes, shirt" placeholder="Ví dụ: T-shirt, shorts..."></div>
+            <div class="flex-wrap-row"><span>Jack's hair: </span><input type="text" class="input-text input-medium p8-in" data-ans="curly, short, brown" placeholder="Mô tả tóc..."></div>
+            <div class="flex-wrap-row"><span>Jack's activities: </span><input type="text" class="input-text input-long p8-in" data-ans="fishing in the river, sitting under the tree" placeholder="Hành động..."></div>
             
             <h4>[THE GIRL'S DATA]</h4>
-            <div class="flex-wrap-row"><span>Girl's clothes: </span><input type="text" class="input-text input-medium p8-in" data-ans="T-shirt, boots, skirt"></div>
-            <div class="flex-wrap-row"><span>Girl's hair: </span><input type="text" class="input-text input-medium p8-in" data-ans="straight, long, black"></div>
-            <div class="flex-wrap-row"><span>Girl's activities: </span><input type="text" class="input-text input-long p8-in" data-ans="taking a photo, standing by the river"></div>
+            <div class="flex-wrap-row"><span>Girl's clothes: </span><input type="text" class="input-text input-medium p8-in" data-ans="T-shirt, boots, skirt" placeholder="Ví dụ: T-shirt, boots..."></div>
+            <div class="flex-wrap-row"><span>Girl's hair: </span><input type="text" class="input-text input-medium p8-in" data-ans="straight, long, black" placeholder="Mô tả tóc..."></div>
+            <div class="flex-wrap-row"><span>Girl's activities: </span><input type="text" class="input-text input-long p8-in" data-ans="taking a photo, standing by the river" placeholder="Hành động..."></div>
             
             <button class="btn btn-check" onclick="checkInputs('p8-in', 'p8-res')">Kiểm tra thông số</button>
             <span id="p8-res" class="result-msg"></span>
@@ -525,16 +537,16 @@
         <div class="section-header">Chương 9: Sentence building & lengthening</div>
         <div class="task-title">Task A: Complete the sentences about Jack</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. Jack's hair is </span><input type="text" class="input-text input-short p9a-in" data-ans="short"><span>, </span><input type="text" class="input-text input-short p9a-in" data-ans="brown"><span> and </span><input type="text" class="input-text input-short p9a-in" data-ans="curly">. (or any order)</div>
-            <div class="flex-wrap-row"><span>2. Jack is </span><input type="text" class="input-text input-medium p9a-in" data-ans="sitting under"><span> the tree and </span><input type="text" class="input-text input-medium p9a-in" data-ans="fishing"><span> in the river.</span></div>
+            <div class="flex-wrap-row"><span>1. Jack's hair is </span><input type="text" class="input-text input-short p9a-in" data-ans="short" placeholder="???"><span>, </span><input type="text" class="input-text input-short p9a-in" data-ans="brown" placeholder="???"><span> and </span><input type="text" class="input-text input-short p9a-in" data-ans="curly" placeholder="???">. (or any order)</div>
+            <div class="flex-wrap-row"><span>2. Jack is </span><input type="text" class="input-text input-medium p9a-in" data-ans="sitting under" placeholder="???"><span> the tree and </span><input type="text" class="input-text input-medium p9a-in" data-ans="fishing" placeholder="???"><span> in the river.</span></div>
             <button class="btn btn-check" onclick="checkInputs('p9a-in', 'p9a-res')">Nộp câu A</button>
             <span id="p9a-res" class="result-msg"></span>
         </div>
 
         <div class="task-title">Task B: Write long sentences about the girl</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. Tả tóc: </span><input type="text" class="input-text input-long p9b-in" data-ans="The girl's hair is long, straight and black."></div>
-            <div class="flex-wrap-row"><span>2. Tả hành động: </span><input type="text" class="input-text input-long p9b-in" data-ans="The girl is standing by the river and taking a photo."></div>
+            <div class="flex-wrap-row"><span>1. Tả tóc: </span><input type="text" class="input-text input-long p9b-in" data-ans="The girl's hair is long, straight and black." placeholder="The girl's hair is..."></div>
+            <div class="flex-wrap-row"><span>2. Tả hành động: </span><input type="text" class="input-text input-long p9b-in" data-ans="The girl is standing by the river and taking a photo." placeholder="The girl is..."></div>
             <button class="btn btn-check" onclick="checkInputs('p9b-in', 'p9b-res')">Chấm câu dài B</button>
             <span id="p9b-res" class="result-msg"></span>
         </div>
@@ -542,10 +554,10 @@
         <div class="task-title">Task C: Read then complete sentences with 'which', 'with' or 'who'</div>
         <div class="img-wrap"><img src="pictures7.png" alt="Hình ảnh bài 9C"></div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. The parrots have got yellow tails, which are </span><input type="text" class="input-text input-short p9c-in" data-ans="short">.</div>
-            <div class="flex-wrap-row"><span>2. The monkey has got a brown tail, which </span><input type="text" class="input-text input-medium p9c-in" data-ans="is in the water|is in the river">.</div>
-            <div class="flex-wrap-row"><span>3. Jack is wearing a cap with his name on it. The monkey is looking at the boat, which has got </span><input type="text" class="input-text input-medium p9c-in" data-ans="a star on it|a white star on it">.</div>
-            <div class="flex-wrap-row"><span>4. In the tree there is a boy, who is climbing. In the tree there is a man, who </span><input type="text" class="input-text input-long p9c-in" data-ans="is reading a book|is sitting and reading a book|is reading">.</div>
+            <div class="flex-wrap-row"><span>1. The parrots have got yellow tails, which are </span><input type="text" class="input-text input-short p9c-in" data-ans="short" placeholder="???">.</div>
+            <div class="flex-wrap-row"><span>2. The monkey has got a brown tail, which </span><input type="text" class="input-text input-medium p9c-in" data-ans="is in the water|is in the river" placeholder="???">.</div>
+            <div class="flex-wrap-row"><span>3. Jack is wearing a cap with his name on it. The monkey is looking at the boat, which has got </span><input type="text" class="input-text input-medium p9c-in" data-ans="a star on it|a white star on it" placeholder="???">.</div>
+            <div class="flex-wrap-row"><span>4. In the tree there is a boy, who is climbing. In the tree there is a man, who </span><input type="text" class="input-text input-long p9c-in" data-ans="is reading a book|is sitting and reading a book|is reading" placeholder="???">.</div>
             <button class="btn btn-check" onclick="checkInputs('p9c-in', 'p9c-res')">Nộp đáp án C</button>
             <span id="p9c-res" class="result-msg"></span>
         </div>
@@ -558,10 +570,10 @@
         
         <div class="task-title">Task A: Complete the sentences & Answer questions</div>
         <div class="question-block">
-            <div class="flex-wrap-row"><span>1. In her hand, the woman has got a/her </span><input type="text" class="input-text input-medium p10a-in" data-ans="phone|mobile phone|telephone|cellphone">.</div>
-            <div class="flex-wrap-row"><span>2. Both of the </span><input type="text" class="input-text input-medium p10a-in" data-ans="boys|brothers|children"><span> are wearing a cap.</span></div>
-            <div class="flex-wrap-row"><span>3. What is flying below the helicopter? ➔ </span><input type="text" class="input-text input-medium p10a-in" data-ans="some parrots|four parrots|parrots">.</div>
-            <div class="flex-wrap-row"><span>4. Where is the man with a phone? ➔ </span><input type="text" class="input-text input-long p10a-in" data-ans="in the boat|on the boat|standing on the boat">.</div>
+            <div class="flex-wrap-row"><span>1. In her hand, the woman has got a/her </span><input type="text" class="input-text input-medium p10a-in" data-ans="phone|mobile phone|telephone|cellphone" placeholder="???">.</div>
+            <div class="flex-wrap-row"><span>2. Both of the </span><input type="text" class="input-text input-medium p10a-in" data-ans="boys|brothers|children" placeholder="???"><span> are wearing a cap.</span></div>
+            <div class="flex-wrap-row"><span>3. What is flying below the helicopter? ➔ </span><input type="text" class="input-text input-medium p10a-in" data-ans="some parrots|four parrots|parrots" placeholder="???">.</div>
+            <div class="flex-wrap-row"><span>4. Where is the man with a phone? ➔ </span><input type="text" class="input-text input-long p10a-in" data-ans="in the boat|on the boat|standing on the boat" placeholder="???">.</div>
             <button class="btn btn-check" onclick="checkInputs('p10a-in', 'p10a-res')">Nộp bài tập tổng hợp</button>
             <span id="p10a-res" class="result-msg"></span>
         </div>
