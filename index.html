@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambridge English: Movers - Writing Skills Hub</title>
+    <title>Cambridge Movers - Writing Skills Hub</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
         
@@ -13,6 +13,7 @@
             margin: 0;
             padding: 20px;
             color: #1e293b;
+            padding-bottom: 80px;
         }
 
         .container {
@@ -25,21 +26,51 @@
             border: 5px solid #bae6fd;
         }
 
-        .header-area {
-            border-bottom: 3px dashed #bae6fd;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-        }
-
         h1 {
+            text-align: center;
             color: #0284c7;
-            font-size: 2rem;
-            margin: 0;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
         }
 
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        /* Thanh điểm tổng cố định */
+        .score-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0284c7;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .score-badge {
+            background: #f59e0b;
+            padding: 4px 15px;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Menu điều hướng */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             margin-bottom: 35px;
         }
@@ -56,7 +87,13 @@
             color: #475569;
         }
 
-        .menu-btn:hover, .menu-btn.active {
+        .menu-btn:hover {
+            background: #e0f2fe;
+            border-color: #38bdf8;
+            color: #0369a1;
+        }
+
+        .menu-btn.active {
             background: #0284c7;
             color: white;
             border-color: #0369a1;
@@ -68,23 +105,19 @@
             animation: fadeIn 0.4s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .section-header {
             color: #0c4a6e;
             font-size: 1.6rem;
+            border-bottom: 4px dashed #bae6fd;
+            padding-bottom: 12px;
             margin-bottom: 25px;
-            font-weight: 700;
         }
 
         .task-title {
             font-size: 1.15rem;
             font-weight: 700;
             color: #0369a1;
-            margin: 25px 0 12px 0;
+            margin: 20px 0 10px 0;
             background: #f0f9ff;
             padding: 8px 15px;
             border-radius: 8px;
@@ -106,92 +139,6 @@
             border-radius: 12px;
         }
 
-        /* Tương tác kéo thả Bản đồ số */
-        .interactive-map {
-            position: relative;
-            display: inline-block;
-        }
-        .drop-dot {
-            position: absolute;
-            width: 34px;
-            height: 34px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid #0284c7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #0284c7;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10;
-        }
-        .number-pool {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 15px;
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 12px;
-            flex-wrap: wrap;
-        }
-        .drag-number {
-            width: 34px;
-            height: 34px;
-            background: #0284c7;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: grab;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-        }
-
-        /* Nối cột thả chữ */
-        .drag-match-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 15px;
-        }
-        .drag-origin-list, .drop-target-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .drag-item-box {
-            background: #f8fafc;
-            border: 2px solid #cbd5e1;
-            padding: 12px;
-            border-radius: 10px;
-            cursor: grab;
-            font-weight: 700;
-        }
-        .drop-target-box {
-            background: #f0f9ff;
-            border: 2px dashed #0284c7;
-            padding: 12px;
-            border-radius: 10px;
-            min-height: 24px;
-            font-weight: 700;
-            color: #0369a1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .drop-zone-slot {
-            background: white;
-            border: 1px solid #94a3b8;
-            padding: 6px 12px;
-            border-radius: 6px;
-            min-width: 120px;
-            text-align: center;
-            color: #0f172a;
-        }
-
         .question-block {
             background: #fafafa;
             border: 1px solid #e2e8f0;
@@ -200,12 +147,29 @@
             margin-bottom: 20px;
         }
 
-        .flex-wrap-row {
+        .grid-checkbox, .grid-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .check-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            justify-content: space-between;
+        }
+
+        .check-item select, .flex-wrap-row select {
+            padding: 6px;
+            border-radius: 6px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            border: 2px solid #cbd5e1;
         }
 
         .input-text {
@@ -217,90 +181,87 @@
             outline: none;
             font-weight: 700;
             color: #334155;
-            background: white;
+            text-align: center;
         }
-        .input-mini { width: 50px; text-align: center; }
-        .input-short { width: 140px; text-align: center; }
-        .input-medium { width: 260px; }
-        .input-long { width: 100%; max-width: 680px; }
 
-        .tri-state-btn {
-            background: white;
-            border: 2px solid #cbd5e1;
-            border-radius: 8px;
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: #64748b;
+        .input-short { width: 140px; }
+        .input-mini { width: 60px; }
+        .input-medium { width: 220px; text-align: left; }
+        .input-long { width: 100%; max-width: 600px; text-align: left; }
+
+        .flex-wrap-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-        .tri-state-btn.state-v { background: #dcfce7; border-color: #22c55e; color: #15803d; }
-        .tri-state-btn.state-x { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
-
-        .radio-group-btn {
-            display: inline-flex;
-            gap: 5px;
-            background: #f1f5f9;
-            padding: 4px;
-            border-radius: 8px;
-        }
-        .radio-option {
-            background: white;
-            border: 1px solid #cbd5e1;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .radio-option.selected {
-            background: #0284c7;
-            color: white;
-            border-color: #0369a1;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
-        .attribute-table {
-            width: 100%;
-            border-collapse: collapse;
+        /* CSS Khu vực Kéo thả Nối chéo bài 4 */
+        .matching-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
             margin-top: 15px;
-            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
-        .attribute-table th, .attribute-table td {
-            border: 1px solid #cbd5e1;
+        .matching-column {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .drag-item {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
             padding: 12px;
+            border-radius: 10px;
+            cursor: grab;
+            font-weight: 700;
+            user-select: none;
+            transition: background 0.2s;
         }
-        .attribute-table th { background: #f0f9ff; color: #0369a1; text-align: left; }
-        
-        .tag-pool-cell {
+        .drag-item:active { cursor: grabbing; }
+        .drop-zone-box {
+            background: #f1f5f9;
+            border: 2px dashed #94a3b8;
+            padding: 12px;
+            border-radius: 10px;
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        /* Khu vực nút bấm lựa chọn thuộc tính bài 8 */
+        .attribute-pool {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
+            margin: 15px 0;
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 12px;
         }
-        .clickable-tag {
+        .tag-btn {
             background: white;
             border: 2px solid #cbd5e1;
-            padding: 5px 12px;
-            border-radius: 16px;
+            padding: 6px 14px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-        .clickable-tag.active-tag {
-            background: #bae6fd;
-            color: #0369a1;
-            border-color: #0284c7;
-        }
+        .tag-btn.selected-jack { background: #38bdf8; color: white; border-color: #0284c7; }
+        .tag-btn.selected-girl { background: #ec4899; color: white; border-color: #be185d; }
 
+        /* Trạng thái đáp án */
         .correct-bg { border-color: #22c55e !important; background-color: #f0fdf4 !important; color: #166534; }
         .incorrect-bg { border-color: #ef4444 !important; background-color: #fef2f2 !important; color: #991b1b; }
 
-        /* Nút hành động và nhãn điểm số làm cực nhỏ gọn */
-        .btn-submit {
-            background: #10b981;
+        .btn {
+            background: #0284c7;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -308,119 +269,438 @@
             font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 0 #047857;
+            box-shadow: 0 4px 0 #0369a1;
+            transition: all 0.1s;
             margin-top: 10px;
+            margin-right: 10px;
         }
-        .btn-submit:active { transform: translateY(3px); box-shadow: none; }
-        
-        .score-badge {
-            display: inline-block;
-            margin-left: 15px;
-            padding: 6px 12px;
-            background: #e2e8f0;
-            color: #334155;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.9rem;
+        .btn:active { transform: translateY(3px); box-shadow: none; }
+        .btn-check { background: #10b981; box-shadow: 0 4px 0 #047857; }
+        .btn-ans { background: #f59e0b; box-shadow: 0 4px 0 #b45309; }
+
+        .ans-zone {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f0fdf4;
+            border-left: 5px solid #10b981;
+            border-radius: 12px;
+            color: #14532d;
         }
 
-        .timer-box {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
-            color: #b45309;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
+        .result-msg { font-weight: 700; margin-top: 15px; display: inline-block; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-area">
-        <h1>📝 Cambridge Movers: Writing Workbook</h1>
-    </div>
+    <h1>📝 Movers Writing Interactive Practice</h1>
+    <p class="subtitle">Ứng dụng quản lý và ôn luyện kỹ năng viết chuẩn đề Cambridge Movers</p>
 
+    <!-- MENU ĐIỀU HƯỚNG -->
     <div class="menu-grid">
-        <button class="menu-btn active" onclick="showSection('ch1', this)">Chương 1</button>
-        <button class="menu-btn" onclick="showSection('ch2', this)">Chương 2</button>
-        <button class="menu-btn" onclick="showSection('ch3', this)">Chương 3</button>
-        <button class="menu-btn" onclick="showSection('ch4', this)">Chương 4</button>
-        <button class="menu-btn" onclick="showSection('ch5', this)">Chương 5</button>
-        <button class="menu-btn" onclick="showSection('ch6', this)">Chương 6</button>
-        <button class="menu-btn" onclick="showSection('ch7', this)">Chương 7</button>
-        <button class="menu-btn" onclick="showSection('ch8', this)">Chương 8</button>
-        <button class="menu-btn" onclick="showSection('ch9', this)">Chương 9</button>
-        <button class="menu-btn" onclick="showSection('ch10', this)">10. Let's Write</button>
+        <button class="menu-btn active" onclick="showSection('p1')">1. What can you see?</button>
+        <button class="menu-btn" onclick="showSection('p2')">2. Which person?</button>
+        <button class="menu-btn" onclick="showSection('p3')">3. What are they doing?</button>
+        <button class="menu-btn" onclick="showSection('p4')">4. Who, what, where?</button>
+        <button class="menu-btn" onclick="showSection('p5')">5. Where are they?</button>
+        <button class="menu-btn" onclick="showSection('p6')">6. Questions & sentences</button>
+        <button class="menu-btn" onclick="showSection('p7')">7. Describing a picture</button>
+        <button class="menu-btn" onclick="showSection('p8')">8. Writing about people</button>
+        <button class="menu-btn" onclick="showSection('p9')">9. Sentence building</button>
+        <button class="menu-btn" onclick="showSection('p10')">10. Let's write!</button>
     </div>
 
-    <div id="ch1" class="content-section" style="display: block;">
+    <!-- CHƯƠNG 1 -->
+    <div id="p1" class="content-section" style="display: block;">
         <div class="section-header">Chương 1: What can you see?</div>
         <div class="img-wrap"><img src="pictures1.png" alt="Pictures 1"></div>
-        
-        <div class="task-title">Task A: Put a (✓) or a (✗) in the box if you can see the thing in the picture</div>
+        <div class="task-title">Task A: Put a (✓) or a (✗)</div>
         <div class="question-block">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>an island</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>a plane</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>some sand</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>some rocks</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>two dolphins</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>five parrots</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>a man</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>a girl</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>the sea</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>two ships</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>an egg</span></div>
-                <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>the sky</span></div>
+            <div class="grid-checkbox">
+                <div class="check-item"><span>Some sand</span><select class="p1a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
+                <div class="check-item"><span>Some rocks</span><select class="p1a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
+                <div class="check-item"><span>Two dolphins</span><select class="p1a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
+                <div class="check-item"><span>Six parrots</span><select class="p1a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
+                <div class="check-item"><span>The sea</span><select class="p1a-sel" data-ans="✓"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
+                <div class="check-item"><span>Two ships</span><select class="p1a-sel" data-ans="✗"><option value="">?</option><option value="✓">✓</option><option value="✗">✗</option></select></div>
             </div>
-            <button class="btn-submit" onclick="checkCh1TaskA()">Nộp bài Task A</button>
-            <span id="ch1a-feedback" class="score-badge">Score: 0/12</span>
-        </div>
-
-        <div class="task-title">Task B: Write the words from scramble boxes</div>
-        <div class="question-block">
-            <p><strong>Word Bank:</strong> <s>a seuho</s> | two ndowiws | three locusd | two mwone | two aotsb | two ysbo</p>
-            <div class="flex-wrap-row"><span>Example: a seuho ➔ </span><input type="text" class="input-text input-medium" value="a house" disabled></div>
-            <div class="flex-wrap-row"><span>1. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two windows" placeholder="two ndowiws..."></div>
-            <div class="flex-wrap-row"><span>2. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="three clouds" placeholder="three locusd..."></div>
-            <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two women" placeholder="two mwone..."></div>
-            <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boats" placeholder="two aotsb..."></div>
-            <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boys" placeholder="two ysbo..."></div>
-            <button class="btn-submit" onclick="checkInputs('ch1b-in', 'ch1b-feedback')">Nộp bài Task B</button>
-            <span id="ch1b-feedback" class="score-badge">Score: 0/5</span>
+            <button class="btn btn-check" onclick="checkSelects('p1a-sel', 'p1a-res', 6)">Nộp bài</button><span id="p1a-res" class="result-msg"></span>
         </div>
     </div>
 
-    <div id="ch2" class="content-section">
-        <div class="section-header">Chương 2: Which person, which thing?</div>
+    <!-- CHƯƠNG 2 -->
+    <div id="p2" class="content-section">
+        <div class="section-header">Chương 2: Which person?</div>
+        <div class="img-wrap"><img src="pictures1.png" alt="Pictures 1"></div>
+        <div class="task-title">Task A: Write the number (1-10) based on location pins</div>
+        <div class="question-block">
+            <div class="grid-inputs">
+                <div class="flex-wrap-row"><span>• the woman with long hair: </span><input type="text" class="input-text input-mini p2a-in" data-ans="1"></div>
+                <div class="flex-wrap-row"><span>• the woman with a parrot on shoulder: </span><input type="text" class="input-text input-mini p2a-in" data-ans="2"></div>
+                <div class="flex-wrap-row"><span>• the boy in an orange T-shirt: </span><input type="text" class="input-text input-mini p2a-in" data-ans="3"></div>
+                <div class="flex-wrap-row"><span>• the taller boy: </span><input type="text" class="input-text input-mini p2a-in" data-ans="4"></div>
+            </div>
+            <button class="btn btn-check" onclick="checkInputs('p2a-in', 'p2a-res', 4)">Nộp bài</button><span id="p2a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 3 -->
+    <div id="p3" class="content-section">
+        <div class="section-header">Chương 3: What are they doing?</div>
+        <div class="img-wrap"><img src="pictures2.png" alt="Pictures 2"></div>
+        <div class="task-title">Task A: Classify words in the table</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>• The woman: </span><input type="text" class="input-text input-medium p3-in" data-ans="standing, carrying bags|carrying bags, standing" placeholder="Điền hành động..."></div>
+            <div class="flex-wrap-row"><span>• The man: </span><input type="text" class="input-text input-medium p3-in" data-ans="standing, pointing|pointing, standing" placeholder="Điền hành động..."></div>
+            <button class="btn btn-check" onclick="checkInputs('p3-in', 'p3-res', 2)">Nộp bài</button><span id="p3-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 4 -->
+    <div id="p4" class="content-section">
+        <div class="section-header">Chương 4: Who, what, where?</div>
+        <div class="img-wrap"><img src="pictures2.png" alt="Pictures 2"></div>
         
-        <div class="task-title">Task A: Write the number of the people and things in the picture</div>
-        <div class="question-block" style="text-align: center;">
-            <div class="interactive-map">
-                <img src="pictures1.png" alt="Pictures 1 Main Map" style="max-width: 650px;">
-                <div class="drop-dot ch2a-zone" style="top: 72%; left: 16%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="1">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 61%; left: 52%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="2">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 76%; left: 24%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="3">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 62%; left: 45%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="4">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 70%; left: 41%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="5">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 17%; left: 47%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="6">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 8%; left: 55%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="7">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 17%; left: 11%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="8">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 74%; left: 53%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="9">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 79%; left: 32%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="10">?</div>
+        <div class="task-title">Task A: Read and match the questions and answers</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. Where is he? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="at the beach"></div>
+            <div class="flex-wrap-row"><span>2. What is he doing? ➔ </span><input type="text" class="input-text input-medium p4a-in" data-ans="drawing a plane"></div>
+            <button class="btn btn-check" onclick="checkInputs('p4a-in', 'p4a-res', 2)">Nộp Task A</button><span id="p4a-res" class="result-msg"></span>
+        </div>
+
+        <div class="task-title">Task B: Drag and Drop to Match Questions and Answers</div>
+        <div class="question-block">
+            <p style="color:#64748b; font-size:0.9rem;">* Hướng dẫn: Kéo các khối câu hỏi màu trắng ở Cột trái thả vào ô trống tương ứng của câu trả lời ở Cột phải.</p>
+            <div class="matching-container">
+                <!-- Cột nguồn kéo -->
+                <div class="matching-column">
+                    <h4>Questions (Kéo khối này)</h4>
+                    <div class="drag-item" draggable="true" id="q1" ondragstart="drag(event)">Who has got long, blond hair?</div>
+                    <div class="drag-item" draggable="true" id="q2" ondragstart="drag(event)">What is the girl doing?</div>
+                    <div class="drag-item" draggable="true" id="q3" ondragstart="drag(event)">What is jumping out of the water?</div>
+                </div>
+                <!-- Cột đích thả -->
+                <div class="matching-column">
+                    <h4>Answers (Thả vào đây)</h4>
+                    <div>
+                        <span>➔ ... the woman</span>
+                        <div class="drop-zone-box p4b-zone" id="zone-q1" ondrop="drop(event)" ondragover="allowDrop(event)">Thả câu hỏi vào đây</div>
+                    </div>
+                    <div>
+                        <span>➔ ... sailing a boat</span>
+                        <div class="drop-zone-box p4b-zone" id="zone-q2" ondrop="drop(event)" ondragover="allowDrop(event)">Thả câu hỏi vào đây</div>
+                    </div>
+                    <div>
+                        <span>➔ ... a blue dolphin</span>
+                        <div class="drop-zone-box p4b-zone" id="zone-q3" ondrop="drop(event)" ondragover="allowDrop(event)">Thả câu hỏi vào đây</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkDragMatching('p4b-zone', 'p4b-res', 3)">Nộp Task B</button>
+            <span id="p4b-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 5 -->
+    <div id="p5" class="content-section">
+        <div class="section-header">Chương 5: Where are they?</div>
+        <div class="img-wrap"><img src="pictures3.png" alt="Pictures 3"></div>
+        <div class="task-title">Task A: Select the correct word</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. The man is </span><select class="p5a-sel" data-ans="outside"><option value="">?</option><option value="outside">outside</option><option value="inside">inside</option></select><span> the house.</span></div>
+            <div class="flex-wrap-row"><span>2. He is </span><select class="p5a-sel" data-ans="on"><option value="">?</option><option value="in">in</option><option value="on">on</option></select><span> the chair.</span></div>
+            <button class="btn btn-check" onclick="checkSelects('p5a-sel', 'p5a-res', 2)">Nộp bài</button><span id="p5a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 6 -->
+    <div id="p6" class="content-section">
+        <div class="section-header">Chương 6: Questions and sentences</div>
+        <div class="img-wrap"><img src="pictures3.png" alt="Pictures 3"></div>
+        <div class="task-title">Task A: Put (✓) or (✗) and correct the wrong word</div>
+        <div class="question-block">
+            <!-- TẤT CẢ các câu đều hiện ô nhập text, không phân biệt đúng sai ban đầu -->
+            <div class="flex-wrap-row">
+                <span>1. The parrot is on a chair which is behind the older woman.</span>
+                <select class="p6a-sel" onchange="toggleCorrectionInput(this, 'c1')" data-ans="✗">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <span id="label-c1" style="display:none;">➔ Sửa thành:</span>
+                <input type="text" id="input-c1" class="input-text input-short p6a-in" data-ans="opposite" style="display:none;">
             </div>
             
-            <div style="text-align: left; margin-top:15px; font-size:0.95rem; background:#fff; padding:10px; border-radius:8px; border:1px solid #e2e8f0;">
-                <strong>Mô tả định vị (Pictures2b):</strong><br>
-                1: the woman with long hair | 2: the woman with a parrot on her shoulder | 3: the boy in an orange T-shirt | 4: the taller boy | 5: the parrot on the boat<br>
-                6: the parrot which is on the rock | 7: the biggest cloud | 8: the smallest cloud | 9: the boat with a sail | 10: the boat which has the boys in it
+            <div class="flex-wrap-row">
+                <span>2. One of the boys is dancing with his mother.</span>
+                <select class="p6a-sel" onchange="toggleCorrectionInput(this, 'c2')" data-ans="✓">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <span id="label-c2" style="display:none;">➔ Sửa thành:</span>
+                <input type="text" id="input-c2" class="input-text input-short p6a-in" data-ans="" style="display:none;">
             </div>
 
-            <div class="number-pool">
-                <div class="drag-number" draggable="true" id="c2n-1" ondragstart="dragStart(event)">1</div>
-                <div class="drag-number" draggable="true" id="c2n-2" ondragstart="dragStart(event)">2</div>
-                <div class="drag-number" draggable="true" id="c2n-3" ondragstart="event.dataTransfer.setData('text', 'c2n-3')">3</div>
-                <div class="drag-number" draggable="true" id
+            <div class="flex-wrap-row">
+                <span>3. There are some green leaves above the man.</span>
+                <select class="p6a-sel" onchange="toggleCorrectionInput(this, 'c3')" data-ans="✓">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <span id="label-c3" style="display:none;">➔ Sửa thành:</span>
+                <input type="text" id="input-c3" class="input-text input-short p6a-in" data-ans="" style="display:none;">
+            </div>
+
+            <div class="flex-wrap-row">
+                <span>4. The woman in a blue and white dress is dancing in the grass.</span>
+                <select class="p6a-sel" onchange="toggleCorrectionInput(this, 'c4')" data-ans="✗">
+                    <option value="">?</option><option value="✓">✓</option><option value="✗">✗</option>
+                </select>
+                <span id="label-c4" style="display:none;">➔ Sửa thành:</span>
+                <input type="text" id="input-c4" class="input-text input-short p6a-in" data-ans="on" style="display:none;">
+            </div>
+
+            <button class="btn btn-check" onclick="checkCh6TaskA()">Nộp bài Task A</button>
+            <span id="p6a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 7 -->
+    <div id="p7" class="content-section">
+        <div class="section-header">Chương 7: Describing a picture</div>
+        <div class="flex-wrap-row"><img src="pictures4.png" style="max-width:45%;"> <img src="pictures5.png" style="max-width:45%;"></div>
+        <div class="task-title">Task A: Put the words in correct order</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. orange book / reading / is / Grandfather / an ➔ </span><input type="text" class="input-text input-long p7a-in" data-ans="Grandfather is reading an orange book."></div>
+            <button class="btn btn-check" onclick="checkInputs('p7a-in', 'p7a-res', 1)">Nộp bài</button><span id="p7a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 8 -->
+    <div id="p8" class="content-section">
+        <div class="section-header">Chương 8: Writing about people</div>
+        <div class="img-wrap"><img src="pictures6.png" alt="Pictures 6"></div>
+        <div class="task-title">Task A: Click to choose attributes for Jack and The Girl (Cambridge Style)</div>
+        <div class="question-block">
+            <p style="color:#64748b; font-size:0.9rem;">* Hướng dẫn: Nhấp 1 lần để chọn cho <b>Jack (Xanh dương)</b>, nhấp lần 2 để chọn cho <b>Girl (Hồng)</b>, nhấp lần 3 để hủy chọn.</p>
+            
+            <div class="attribute-pool">
+                <button class="tag-btn" id="tag1" data-state="none" data-ans="jack" onclick="cycleTag('tag1')">T-shirt</button>
+                <button class="tag-btn" id="tag2" data-state="none" data-ans="jack" onclick="cycleTag('tag2')">shorts</button>
+                <button class="tag-btn" id="tag3" data-state="none" data-ans="girl" onclick="cycleTag('tag3')">boots</button>
+                <button class="tag-btn" id="tag4" data-state="none" data-ans="girl" onclick="cycleTag('tag4')">skirt</button>
+                <button class="tag-btn" id="tag5" data-state="none" data-ans="jack" onclick="cycleTag('tag5')">curly hair</button>
+                <button class="tag-btn" id="tag6" data-state="none" data-ans="girl" onclick="cycleTag('tag6')">straight hair</button>
+            </div>
+
+            <button class="btn btn-check" onclick="checkTags('tag-btn', 'p8a-res', 6)">Chấm điểm thuộc tính</button>
+            <span id="p8a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 9 -->
+    <div id="p9" class="content-section">
+        <div class="section-header">Chương 9: Sentence building</div>
+        <div class="task-title">Task A: Complete the sentences about Jack</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. Jack's hair is </span><input type="text" class="input-text input-short p9a-in" data-ans="short"><span>, brown and curly.</span></div>
+            <button class="btn btn-check" onclick="checkInputs('p9a-in', 'p9a-res', 1)">Nộp bài</button><span id="p9a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+    <!-- CHƯƠNG 10 -->
+    <div id="p10" class="content-section">
+        <div class="section-header">Chương 10: Let's write!</div>
+        <div class="img-wrap"><img src="pictures8.png" alt="Pictures 8"></div>
+        <div class="task-title">Task A: Complete sentences</div>
+        <div class="question-block">
+            <div class="flex-wrap-row"><span>1. In her hand, the woman has got a </span><input type="text" class="input-text input-medium p10a-in" data-ans="phone|mobile phone|telephone">.</div>
+            <button class="btn btn-check" onclick="checkInputs('p10a-in', 'p10a-res', 1)">Nộp bài</button><span id="p10a-res" class="result-msg"></span>
+        </div>
+    </div>
+
+</div>
+
+<!-- THANH ĐIỂM TỔNG CỐ ĐỊNH -->
+<div class="score-sticky-bar">
+    <span>🏆 Toàn bộ bài học:</span>
+    <span class="score-badge">Tổng điểm: <strong id="global-score">0</strong> / <strong id="global-max">30</strong></span>
+</div>
+
+<script>
+    // Quản lý lưu trữ điểm số cục bộ của từng bài tập để tính tổng thể
+    let sectionScores = {};
+
+    function updateGlobalScore() {
+        let total = 0;
+        for (let key in sectionScores) {
+            total += sectionScores[key];
+        }
+        document.getElementById('global-score').innerText = total;
+    }
+
+    function showSection(sectionId) {
+        let sections = document.getElementsByClassName('content-section');
+        for (let i = 0; i < sections.length; i++) sections[i].style.display = 'none';
+        document.getElementById(sectionId).style.display = 'block';
+
+        let buttons = document.getElementsByClassName('menu-btn');
+        for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    // 1. Chấm điểm Thẻ Select
+    function checkSelects(className, resId, maxPoints) {
+        let sels = document.getElementsByClassName(className);
+        let score = 0;
+        for (let i = 0; i < sels.length; i++) {
+            if (sels[i].value === sels[i].getAttribute('data-ans')) {
+                sels[i].className = className + " correct-bg";
+                score++;
+            } else {
+                sels[i].className = className + " incorrect-bg";
+            }
+        }
+        document.getElementById(resId).innerHTML = `Đúng ${score}/${sels.length} câu.`;
+        document.getElementById(resId).style.color = (score === sels.length) ? "#10b981" : "#ef4444";
+        sectionScores[className] = score;
+        updateGlobalScore();
+    }
+
+    // 2. Chấm điểm Ô nhập Text
+    function checkInputs(className, resId, maxPoints) {
+        let inputs = document.getElementsByClassName(className);
+        let score = 0;
+        for (let i = 0; i < inputs.length; i++) {
+            let val = inputs[i].value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+            let possibleAnswers = inputs[i].getAttribute('data-ans').toLowerCase().split('|');
+            let isCorrect = false;
+            for (let ans of possibleAnswers) {
+                if (val === ans.trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) { isCorrect = true; break; }
+            }
+            if (val !== "" && isCorrect) {
+                inputs[i].className = "input-text correct-bg";
+                score++;
+            } else {
+                inputs[i].className = "input-text incorrect-bg";
+            }
+        }
+        document.getElementById(resId).innerHTML = `Đúng ${score}/${inputs.length} ô dữ liệu.`;
+        document.getElementById(resId).style.color = (score === inputs.length) ? "#10b981" : "#f59e0b";
+        sectionScores[className] = score;
+        updateGlobalScore();
+    }
+
+    // 3. Logic Drag & Drop Chương 4 Task B
+    function allowDrop(ev) { ev.preventDefault(); }
+    function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var node = document.getElementById(data);
+        ev.target.innerHTML = ""; 
+        ev.target.appendChild(node);
+        ev.target.setAttribute('data-user-bind', data);
+    }
+
+    function checkDragMatching(zoneClass, resId, maxPoints) {
+        let zones = document.getElementsByClassName(zoneClass);
+        let score = 0;
+        for (let i = 0; i < zones.length; i++) {
+            let targetId = zones[i].id.replace('zone-', '');
+            let boundId = zones[i].getAttribute('data-user-bind');
+            if (boundId === targetId) {
+                zones[i].className = "drop-zone-box correct-bg";
+                score++;
+            } else {
+                zones[i].className = "drop-zone-box incorrect-bg";
+            }
+        }
+        document.getElementById(resId).innerHTML = `Nối đúng ${score}/${zones.length} cặp câu.`;
+        sectionScores[zoneClass] = score;
+        updateGlobalScore();
+    }
+
+    // 4. Logic Ẩn/Hiện ô nhập chỉnh sửa của Chương 6 Task A dựa theo select
+    function toggleCorrectionInput(selectEl, idSuffix) {
+        let label = document.getElementById('label-' + idSuffix);
+        let input = document.getElementById('input-' + idSuffix);
+        if (selectEl.value === '✗') {
+            if(label) label.style.display = 'inline';
+            if(input) input.style.display = 'inline';
+        } else {
+            if(label) label.style.display = 'none';
+            if(input) input.style.display = 'none';
+            if(input) input.value = '';
+        }
+    }
+
+    function checkCh6TaskA() {
+        let sels = document.getElementsByClassName('p6a-sel');
+        let score = 0;
+        let totalItems = 0;
+
+        for(let i=0; i<sels.length; i++) {
+            totalItems++;
+            let isSelCorrect = (sels[i].value === sels[i].getAttribute('data-ans'));
+            let idSuffix = sels[i].getAttribute('onchange').match(/'([^']+)'/)[1];
+            let inputEl = document.getElementById('input-' + idSuffix);
+
+            if (sels[i].value === '✗') {
+                totalItems++; // Có thêm 1 điểm gõ text sửa lỗi
+                let textCorrect = (inputEl.value.trim().toLowerCase() === inputEl.getAttribute('data-ans').toLowerCase());
+                if (isSelCorrect && textCorrect) {
+                    sels[i].className = "p6a-sel correct-bg";
+                    inputEl.className = "input-text input-short correct-bg";
+                    score += 2;
+                } else {
+                    sels[i].className = "p6a-sel incorrect-bg";
+                    inputEl.className = "input-text input-short incorrect-bg";
+                }
+            } else {
+                if (isSelCorrect) {
+                    sels[i].className = "p6a-sel correct-bg";
+                    score++;
+                } else {
+                    sels[i].className = "p6a-sel incorrect-bg";
+                }
+            }
+        }
+        document.getElementById('p6a-res').innerHTML = `Đạt ${score}/${totalItems} điểm trong Task A.`;
+        sectionScores['p6a-task'] = score;
+        updateGlobalScore();
+    }
+
+    // 5. Logic chuyển trạng thái thẻ Tag bài 8 (None -> Jack -> Girl -> None)
+    function cycleTag(id) {
+        let btn = document.getElementById(id);
+        let current = btn.getAttribute('data-state');
+        if (current === 'none') {
+            btn.setAttribute('data-state', 'jack');
+            btn.className = "tag-btn selected-jack";
+        } else if (current === 'jack') {
+            btn.setAttribute('data-state', 'girl');
+            btn.className = "tag-btn selected-girl";
+        } else {
+            btn.setAttribute('data-state', 'none');
+            btn.className = "tag-btn";
+        }
+    }
+
+    function checkTags(className, resId, maxPoints) {
+        let btns = document.getElementsByClassName(className);
+        let score = 0;
+        for(let i=0; i<btns.length; i++) {
+            let userState = btns[i].getAttribute('data-state');
+            let targetState = btns[i].getAttribute('data-ans');
+            if (userState === targetState) {
+                btns[i].style.borderColor = "#22c55e";
+                score++;
+            } else {
+                btns[i].style.borderColor = "#ef4444";
+            }
+        }
+        document.getElementById(resId).innerHTML = `Chính xác ${score}/${btns.length} thuộc tính nhân vật.`;
+        sectionScores[className] = score;
+        updateGlobalScore();
+    }
+</script>
+</body>
+</html>
