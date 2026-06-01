@@ -23,35 +23,18 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.06);
             padding: 40px;
             border: 5px solid #bae6fd;
-            position: relative;
         }
 
         .header-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             border-bottom: 3px dashed #bae6fd;
             padding-bottom: 20px;
             margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
         h1 {
             color: #0284c7;
             font-size: 2rem;
             margin: 0;
-        }
-
-        /* Thống kê điểm số làm nhỏ gọn tinh tế ở góc trên */
-        .mini-score-box {
-            background: #0284c7;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
         }
 
         .menu-grid {
@@ -123,7 +106,7 @@
             border-radius: 12px;
         }
 
-        /* Kéo thả tương tác Map */
+        /* Tương tác kéo thả Bản đồ số */
         .interactive-map {
             position: relative;
             display: inline-block;
@@ -167,7 +150,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
-        /* Nối cột kéo thả */
+        /* Nối cột thả chữ */
         .drag-match-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -315,20 +298,31 @@
         .correct-bg { border-color: #22c55e !important; background-color: #f0fdf4 !important; color: #166534; }
         .incorrect-bg { border-color: #ef4444 !important; background-color: #fef2f2 !important; color: #991b1b; }
 
+        /* Nút hành động và nhãn điểm số làm cực nhỏ gọn */
         .btn-submit {
             background: #10b981;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 4px 0 #047857;
             margin-top: 10px;
         }
         .btn-submit:active { transform: translateY(3px); box-shadow: none; }
-        .feedback-text { font-weight: 700; margin-left: 15px; color: #0284c7; }
+        
+        .score-badge {
+            display: inline-block;
+            margin-left: 15px;
+            padding: 6px 12px;
+            background: #e2e8f0;
+            color: #334155;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
 
         .timer-box {
             background: #fef3c7;
@@ -346,12 +340,7 @@
 
 <div class="container">
     <div class="header-area">
-        <div>
-            <h1>📝 Cambridge Movers: Writing Workbook</h1>
-        </div>
-        <div class="mini-score-box">
-            Score: <span id="global-final-sc">0</span> / 131
-        </div>
+        <h1>📝 Cambridge Movers: Writing Workbook</h1>
     </div>
 
     <div class="menu-grid">
@@ -387,7 +376,8 @@
                 <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✗" onclick="cycleTriState(this)">?</button><span>an egg</span></div>
                 <div class="flex-wrap-row"><button class="tri-state-btn ch1a-btn" data-state="none" data-ans="✓" onclick="cycleTriState(this)">?</button><span>the sky</span></div>
             </div>
-            <button class="btn-submit" onclick="checkCh1TaskA()">Nộp bài Task A</button><span id="ch1a-feedback" class="feedback-text"></span>
+            <button class="btn-submit" onclick="checkCh1TaskA()">Nộp bài Task A</button>
+            <span id="ch1a-feedback" class="score-badge">Score: 0/12</span>
         </div>
 
         <div class="task-title">Task B: Write the words from scramble boxes</div>
@@ -399,156 +389,38 @@
             <div class="flex-wrap-row"><span>3. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two women" placeholder="two mwone..."></div>
             <div class="flex-wrap-row"><span>4. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boats" placeholder="two aotsb..."></div>
             <div class="flex-wrap-row"><span>5. </span><input type="text" class="input-text input-medium ch1b-in" data-ans="two boys" placeholder="two ysbo..."></div>
-            <button class="btn-submit" onclick="checkInputs('ch1b-in', 'ch1b-feedback', 'ch1b')">Nộp bài Task B</button><span id="ch1b-feedback" class="feedback-text"></span>
+            <button class="btn-submit" onclick="checkInputs('ch1b-in', 'ch1b-feedback')">Nộp bài Task B</button>
+            <span id="ch1b-feedback" class="score-badge">Score: 0/5</span>
         </div>
     </div>
 
     <div id="ch2" class="content-section">
         <div class="section-header">Chương 2: Which person, which thing?</div>
         
-        <div class="task-title">Task A: Write the number of the people and things in the picture (Pictures2b & 2c)</div>
+        <div class="task-title">Task A: Write the number of the people and things in the picture</div>
         <div class="question-block" style="text-align: center;">
             <div class="interactive-map">
                 <img src="pictures1.png" alt="Pictures 1 Main Map" style="max-width: 650px;">
-                <div class="drop-dot ch2a-zone" style="top: 72%; left: 16%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="1">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 61%; left: 52%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="2">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 76%; left: 24%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="3">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 62%; left: 45%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="4">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 70%; left: 41%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="5">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 17%; left: 47%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="6">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 8%; left: 55%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="7">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 17%; left: 11%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="8">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 74%; left: 53%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="9">?</div>
-                <div class="drop-dot ch2a-zone" style="top: 79%; left: 32%;" ondragover="allowDrop(ev)" ondrop="dropNumber(ev)" data-ans="10">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 72%; left: 16%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="1">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 61%; left: 52%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="2">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 76%; left: 24%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="3">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 62%; left: 45%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="4">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 70%; left: 41%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="5">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 17%; left: 47%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="6">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 8%; left: 55%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="7">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 17%; left: 11%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="8">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 74%; left: 53%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="9">?</div>
+                <div class="drop-dot ch2a-zone" style="top: 79%; left: 32%;" ondragover="allowDrop(event)" ondrop="dropNumber(event)" data-ans="10">?</div>
             </div>
             
             <div style="text-align: left; margin-top:15px; font-size:0.95rem; background:#fff; padding:10px; border-radius:8px; border:1px solid #e2e8f0;">
-                <strong>Danh sách mô tả định biên (Pictures2b):</strong><br>
+                <strong>Mô tả định vị (Pictures2b):</strong><br>
                 1: the woman with long hair | 2: the woman with a parrot on her shoulder | 3: the boy in an orange T-shirt | 4: the taller boy | 5: the parrot on the boat<br>
                 6: the parrot which is on the rock | 7: the biggest cloud | 8: the smallest cloud | 9: the boat with a sail | 10: the boat which has the boys in it
             </div>
 
             <div class="number-pool">
-                <div class="drag-number" draggable="true" id="c2n-1" ondragstart="dragStart(ev)">1</div>
-                <div class="drag-number" draggable="true" id="c2n-2" ondragstart="dragStart(ev)">2</div>
-                <div class="drag-number" draggable="true" id="c2n-3" ondragstart="dragStart(ev)">3</div>
-                <div class="drag-number" draggable="true" id="c2n-4" ondragstart="dragStart(ev)">4</div>
-                <div class="drag-number" draggable="true" id="c2n-5" ondragstart="dragStart(ev)">5</div>
-                <div class="drag-number" draggable="true" id="c2n-6" ondragstart="dragStart(ev)">6</div>
-                <div class="drag-number" draggable="true" id="c2n-7" ondragstart="dragStart(ev)">7</div>
-                <div class="drag-number" draggable="true" id="c2n-8" ondragstart="dragStart(ev)">8</div>
-                <div class="drag-number" draggable="true" id="c2n-9" ondragstart="dragStart(ev)">9</div>
-                <div class="drag-number" draggable="true" id="c2n-10" ondragstart="dragStart(ev)">10</div>
-            </div>
-            <button class="btn-submit" onclick="checkCh2TaskA()">Nộp bài Task A</button><span id="ch2a-feedback" class="feedback-text"></span>
-        </div>
-
-        <div class="task-title">Task B: Match the two parts of these sentences</div>
-        <div class="question-block">
-            <div class="drag-match-container">
-                <div class="drag-origin-list">
-                    <div class="drag-item-box" style="cursor:default;">Example: The woman with a parrot... ➔ <strong>short grey hair.</strong></div>
-                    <div class="drag-item-box" style="cursor:default;">1. The taller boy is wearing...</div>
-                    <div class="drag-item-box" style="cursor:default;">2. The parrot which is on the rock is...</div>
-                    <div class="drag-item-box" style="cursor:default;">3. The biggest cloud is...</div>
-                    <div class="drag-item-box" style="cursor:default;">4. The boat with a sail has...</div>
-                </div>
-                <div>
-                    <div class="flex-wrap-row"><span>Câu 1 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="a yellow T-shirt" placeholder="a yellow T-shirt"></div>
-                    <div class="flex-wrap-row"><span>Câu 2 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="looking at the boat" placeholder="looking at..."></div>
-                    <div class="flex-wrap-row"><span>Câu 3 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="grey" placeholder="màu sắc..."></div>
-                    <div class="flex-wrap-row"><span>Câu 4 nối với: </span><input type="text" class="input-text input-short ch2b-in" data-ans="not got any people in it" placeholder="not got..."></div>
-                </div>
-            </div>
-            <button class="btn-submit" onclick="checkInputs('ch2b-in', 'ch2b-feedback', 'ch2b')">Nộp bài Task B</button><span id="ch2b-feedback" class="feedback-text"></span>
-        </div>
-
-        <div class="task-title">Task C: Now complete these sentences with one or two words</div>
-        <div class="question-block">
-            <div class="flex-wrap-row"><span>1. The woman with grey hair has a parrot on her </span><input type="text" class="input-text input-medium ch2c-in" data-ans="shoulder">.</div>
-            <div class="flex-wrap-row"><span>2. Two parrots are flying above </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the trees|some trees|two trees|trees">.</div>
-            <div class="flex-wrap-row"><span>3. The parrot with </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the flower|a flower"><span> is standing on the boat.</span></div>
-            <div class="flex-wrap-row"><span>4. The shorter boy's </span><input type="text" class="input-text input-medium ch2c-in" data-ans="T-shirt"><span> is orange.</span></div>
-            <div class="flex-wrap-row"><span>5. The boat which is going to </span><input type="text" class="input-text input-medium ch2c-in" data-ans="the island"><span> doesn't have a sail.</span></div>
-            <button class="btn-submit" onclick="checkInputs('ch2c-in', 'ch2c-feedback', 'ch2c')">Nộp bài Task C</button><span id="ch2c-feedback" class="feedback-text"></span>
-        </div>
-    </div>
-
-    <div id="ch3" class="content-section">
-        <div class="section-header">Chương 3: What are they doing?</div>
-        <div class="img-wrap"><img src="pictures2.png" alt="Pictures 2 Main"></div>
-        
-        <div class="task-title">Task A: Look at the picture and the words. Write the words in the table</div>
-        <div class="question-block">
-            <p style="background:#fff7ed; padding:10px; border-radius:6px;"><strong>Word Bank:</strong> standing | sitting | sailing | carrying bags | smiling | drawing | pointing | waving</p>
-            <table class="attribute-table" style="text-align: center;">
-                <thead>
-                    <tr>
-                        <th>the woman</th>
-                        <th>the man</th>
-                        <th>the girl</th>
-                        <th>the boy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div>standing</div>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="carrying bags">
-                        </td>
-                        <td>
-                            <div>standing</div>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="pointing">
-                        </td>
-                        <td>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="sitting" placeholder="Hành động 1"><br><br>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="sailing" placeholder="Hành động 2"><br><br>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="smiling" placeholder="Hành động 3"><br><br>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="waving" placeholder="Hành động 4">
-                        </td>
-                        <td>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="sitting" placeholder="Hành động 1"><br><br>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="drawing" placeholder="Hành động 2"><br><br>
-                            <input type="text" class="input-text input-short ch3-in" data-ans="smiling" placeholder="Hành động 3">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn-submit" onclick="checkInputs('ch3-in', 'ch3-feedback', 'ch3')">Nộp bài Chương 3</button><span id="ch3-feedback" class="feedback-text"></span>
-        </div>
-    </div>
-
-    <div id="ch4" class="content-section">
-        <div class="section-header">Chương 4: Who, what, where, how many?</div>
-        
-        <div class="task-title">Task A: Read and match the questions and answers (Pictures2a)</div>
-        <div class="question-block">
-            <div style="text-align:center; margin-bottom:15px;"><img src="pictures2a.png" alt="Pictures 2a Mini Icon" style="border-radius:12px; max-width:200px; border:2px solid #0284c7;"></div>
-            <div class="drag-match-container">
-                <div class="drop-target-list">
-                    <div class="drop-target-box">Example: Who is on the sand? <span class="drop-zone-slot">a boy</span></div>
-                    <div class="drop-target-box">1. Where is he? <span class="drop-zone-slot ch4a-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="at the beach">?</span></div>
-                    <div class="drop-target-box">2. What is he doing? <span class="drop-zone-slot ch4a-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="drawing a plane">?</span></div>
-                    <div class="drop-target-box">3. How many planes can you see? <span class="drop-zone-slot ch4a-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="one">?</span></div>
-                    <div class="drop-target-box">4. What colour is the boy's T-shirt? <span class="drop-zone-slot ch4a-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="orange">?</span></div>
-                    <div class="drop-target-box">5. What shape is around the plane? <span class="drop-zone-slot ch4a-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="a circle">?</span></div>
-                </div>
-                <div class="drag-origin-list">
-                    <div class="drag-item-box" draggable="true" id="c4a-i1" ondragstart="dragStart(ev)">drawing a plane</div>
-                    <div class="drag-item-box" draggable="true" id="c4a-i2" ondragstart="dragStart(ev)">orange</div>
-                    <div class="drag-item-box" draggable="true" id="c4a-i3" ondragstart="dragStart(ev)">a circle</div>
-                    <div class="drag-item-box" draggable="true" id="c4a-i4" ondragstart="dragStart(ev)">one</div>
-                    <div class="drag-item-box" draggable="true" id="c4a-i5" ondragstart="dragStart(ev)">at the beach</div>
-                </div>
-            </div>
-            <button class="btn-submit" onclick="checkCh4TaskA()">Nộp bài Task A</button><span id="ch4a-feedback" class="feedback-text"></span>
-        </div>
-
-        <div class="task-title">Task B: Match the questions and answers (Pictures4a Cloud Extraction)</div>
-        <div class="question-block">
-            <div class="drag-match-container">
-                <div class="drop-target-list">
-                    <div class="drop-target-box">Example: Where is the parrot? <span class="drop-zone-slot">on a rock</span></div>
-                    <div class="drop-target-box">1. Who has got long, blond hair? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="the woman">?</span></div>
-                    <div class="drop-target-box">2. What is the girl doing? <span class="drop-zone-slot ch4b-drop" ondragover="allowDrop(ev)" ondrop="dropMatchItem(ev)" data-ans="sailing a boat">?</span></div>
-                    <div class="drop-target-box">3. How many people are standing on the sand? <span class="drop-zone-slot ch4b
+                <div class="drag-number" draggable="true" id="c2n-1" ondragstart="dragStart(event)">1</div>
+                <div class="drag-number" draggable="true" id="c2n-2" ondragstart="dragStart(event)">2</div>
+                <div class="drag-number" draggable="true" id="c2n-3" ondragstart="event.dataTransfer.setData('text', 'c2n-3')">3</div>
+                <div class="drag-number" draggable="true" id
